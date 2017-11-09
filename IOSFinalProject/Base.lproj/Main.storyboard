@@ -79,26 +79,26 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-5m-afW">
-                                        <rect key="frame" x="0.0" y="321" width="375" height="119.5"/>
+                                        <rect key="frame" x="0.0" y="321" width="375" height="119"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-YF-3S0">
-                                        <rect key="frame" x="0.0" y="442.5" width="375" height="79.5"/>
+                                        <rect key="frame" x="0.0" y="442" width="375" height="79.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Duration"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-7V-Vj1">
-                                        <rect key="frame" x="0.0" y="524" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="523.5" width="375" height="79.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-3W-H1D">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="79"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="79.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Post"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-se-B2M">
-                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="79"/>
+                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="79.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
@@ -135,7 +135,56 @@
                     <view key="view" contentMode="scaleToFill" id="ZbD-Sd-oLC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="CmG-o7-RUR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-0d-yYV">
+                                        <rect key="frame" x="0.0" y="226" width="375" height="74.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-MG-uCD">
+                                        <rect key="frame" x="0.0" y="302.5" width="375" height="74.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-rY-h4o">
+                                        <rect key="frame" x="0.0" y="379" width="375" height="224"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Oyd-7f-Q8n">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oyd-7f-Q8n" id="Mmq-te-3si">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PN2-C1-ity" firstAttribute="height" secondItem="OJ3-0d-yYV" secondAttribute="height" multiplier="3:1" id="Pkl-b3-SVu"/>
+                                    <constraint firstItem="PN2-C1-ity" firstAttribute="height" secondItem="WwZ-MG-uCD" secondAttribute="height" multiplier="3:1" id="vp6-VL-IDU"/>
+                                    <constraint firstItem="PN2-C1-ity" firstAttribute="height" secondItem="PL2-rY-h4o" secondAttribute="height" id="zSL-hY-fpl"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TGF-JB-33r" firstAttribute="bottom" secondItem="CmG-o7-RUR" secondAttribute="bottom" id="1bj-Fh-lR2"/>
+                            <constraint firstItem="TGF-JB-33r" firstAttribute="trailing" secondItem="CmG-o7-RUR" secondAttribute="trailing" id="AmZ-qX-OiB"/>
+                            <constraint firstItem="CmG-o7-RUR" firstAttribute="leading" secondItem="TGF-JB-33r" secondAttribute="leading" id="IZ9-oe-Meb"/>
+                            <constraint firstItem="CmG-o7-RUR" firstAttribute="top" secondItem="TGF-JB-33r" secondAttribute="top" id="vmI-AX-ZU1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TGF-JB-33r"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="uWF-8O-iLM"/>
@@ -143,6 +192,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1U-2x-CWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1334" y="539"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="g7w-vx-eFX">
+            <objects>
+                <viewController id="mhT-9g-eiE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3vH-wo-NDr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="c3C-AB-hal"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VL0-gj-rag" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2226" y="97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pWk-eA-eKx">
