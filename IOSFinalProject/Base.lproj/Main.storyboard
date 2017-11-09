@@ -51,16 +51,64 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Create-->
         <scene sceneID="Ph0-yt-5L5">
             <objects>
                 <viewController id="4Hg-dB-jbb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4bT-lm-VR8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-bw-j8l">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-mc-0mO">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QYE-DT-LOS">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="128"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0sV-tu-D4I">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="128"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="QYE-DT-LOS" firstAttribute="width" secondItem="0sV-tu-D4I" secondAttribute="width" id="tdD-hn-11a"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Random text" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rCH-US-rnR">
+                                        <rect key="frame" x="0.0" y="128" width="375" height="128"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="moA-iC-LGs">
+                                        <rect key="frame" x="0.0" y="256" width="375" height="347"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="z0a-mc-0mO" firstAttribute="height" secondItem="rCH-US-rnR" secondAttribute="height" id="mJQ-lv-a3v"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pXR-bw-j8l" firstAttribute="top" secondItem="yq5-Ek-8UH" secondAttribute="top" id="IAF-LD-iM4"/>
+                            <constraint firstItem="yq5-Ek-8UH" firstAttribute="bottom" secondItem="pXR-bw-j8l" secondAttribute="bottom" id="a0b-pc-7Zw"/>
+                            <constraint firstItem="pXR-bw-j8l" firstAttribute="leading" secondItem="yq5-Ek-8UH" secondAttribute="leading" id="hXF-mq-B63"/>
+                            <constraint firstItem="yq5-Ek-8UH" firstAttribute="trailing" secondItem="pXR-bw-j8l" secondAttribute="trailing" id="kiJ-ra-OGT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yq5-Ek-8UH"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrD-iI-T5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
