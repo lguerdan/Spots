@@ -43,6 +43,7 @@
 			children = (
 				F4B6AA581FB4D4060058AC51 /* IOSFinalProject */,
 				F4B6AA571FB4D4060058AC51 /* Products */,
+				F4B6AA6F1FB505650058AC51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +68,13 @@
 				F4B6AA601FB4D4060058AC51 /* IOSFinalProject.xcdatamodeld */,
 			);
 			path = IOSFinalProject;
+			sourceTree = "<group>";
+		};
+		F4B6AA6F1FB505650058AC51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +111,9 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--Create-->
+        <!--Create Post-->
         <scene sceneID="Ph0-yt-5L5">
             <objects>
                 <viewController id="4Hg-dB-jbb" sceneMemberID="viewController">
@@ -59,47 +60,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-bw-j8l">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-bw-j8l">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-40-MmT">
-                                        <rect key="frame" x="0.0" y="505" width="375" height="17"/>
+                                        <rect key="frame" x="0.0" y="240" width="375" height="79"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Desc" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVG-C7-34Y">
-                                        <rect key="frame" x="0.0" y="523" width="375" height="17.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-5m-afW">
+                                        <rect key="frame" x="0.0" y="321" width="375" height="119"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-YF-3S0">
-                                        <rect key="frame" x="0.0" y="541" width="375" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="442" width="375" height="79.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Duration"/>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-7V-Vj1">
-                                        <rect key="frame" x="0.0" y="572.5" width="375" height="30.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-7V-Vj1">
+                                        <rect key="frame" x="0.0" y="523.5" width="375" height="79.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-3W-H1D">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="79.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Post"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-se-B2M">
-                                                <rect key="frame" x="188" y="0.0" width="187" height="30.5"/>
+                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="79.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="yUr-YF-3S0" secondAttribute="height" multiplier="3:1" id="5Fo-a4-J5i"/>
+                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="GKc-5m-afW" secondAttribute="height" multiplier="2:1" id="STl-qh-lEb"/>
+                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="YBX-7V-Vj1" secondAttribute="height" multiplier="3:1" id="ghr-3T-BSk"/>
+                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="kcT-40-MmT" secondAttribute="height" multiplier="3:1" id="vS7-dZ-F8e"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,7 +117,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yq5-Ek-8UH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
+                    <navigationItem key="navigationItem" title="Create Post" id="SfF-c5-BOx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrD-iI-T5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,4 +142,7 @@
             <point key="canvasLocation" x="-306" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Filler" width="2553" height="3410"/>
+    </resources>
 </document>
