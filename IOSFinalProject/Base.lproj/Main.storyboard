@@ -51,6 +51,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="mhT-9g-eiE" kind="show" identifier="ShowDogPost" id="y9j-jT-vX0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,20 +196,83 @@
             </objects>
             <point key="canvasLocation" x="1334" y="539"/>
         </scene>
-        <!--View Controller-->
+        <!--Post-->
         <scene sceneID="g7w-vx-eFX">
             <objects>
                 <viewController id="mhT-9g-eiE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3vH-wo-NDr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-Du-J0g">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="62.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
+                                        <rect key="frame" x="0.0" y="254.5" width="375" height="63"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZu-sN-yDN">
+                                        <rect key="frame" x="0.0" y="319.5" width="375" height="94"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O1-DY-BmZ">
+                                                <rect key="frame" x="143" y="21.5" width="89" height="50.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="4O1-DY-BmZ" firstAttribute="centerX" secondItem="TZu-sN-yDN" secondAttribute="centerX" id="ZK6-8U-gcs"/>
+                                            <constraint firstItem="4O1-DY-BmZ" firstAttribute="centerY" secondItem="TZu-sN-yDN" secondAttribute="centerY" id="jvv-Ij-nu7"/>
+                                        </constraints>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CpT-ZH-OUJ">
+                                        <rect key="frame" x="0.0" y="415.5" width="375" height="187.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="qB6-Du-RpG" secondAttribute="height" multiplier="3:1" id="4zC-gS-DUL"/>
+                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="CpT-ZH-OUJ" secondAttribute="height" id="NwI-6G-U3B"/>
+                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="TZu-sN-yDN" secondAttribute="height" multiplier="2:1" id="hek-iA-9vB"/>
+                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="HM4-ff-zI6" secondAttribute="height" multiplier="3:1" id="pd6-hl-orb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="h8A-Du-J0g" firstAttribute="leading" secondItem="c3C-AB-hal" secondAttribute="leading" id="VQ1-K2-uwU"/>
+                            <constraint firstItem="c3C-AB-hal" firstAttribute="bottom" secondItem="h8A-Du-J0g" secondAttribute="bottom" id="mSO-Qx-TUn"/>
+                            <constraint firstItem="h8A-Du-J0g" firstAttribute="top" secondItem="c3C-AB-hal" secondAttribute="top" id="tGk-eW-2EZ"/>
+                            <constraint firstItem="c3C-AB-hal" firstAttribute="trailing" secondItem="h8A-Du-J0g" secondAttribute="trailing" id="u2r-ZF-64X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="c3C-AB-hal"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Post" id="4Fm-zI-MJF">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="bookmarks" id="TmY-EW-Enp"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL0-gj-rag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="97"/>
+            <point key="canvasLocation" x="2225" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pWk-eA-eKx">
