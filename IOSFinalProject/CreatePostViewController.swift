@@ -43,14 +43,15 @@ extension CreatePostViewController: UIPickerViewDelegate{
     }
 }
 
-extension CreatePostViewController: UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
-    }
-    
-    //data
-}
+//extension CreatePostViewController: UIPickerViewDataSource{
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        <#code#>
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    //data
+//}
+
