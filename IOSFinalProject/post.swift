@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import CoreLocation
 
 struct Post {
     var name : String
