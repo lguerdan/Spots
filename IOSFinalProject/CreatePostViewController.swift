@@ -14,17 +14,51 @@ class CreatePostViewController: UIViewController {
     var latitude: Double? = nil
     var longitude: Double? = nil
 
+    @IBOutlet weak var imageView: UIImageView!
+    let picker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(latitude!)
-        print(longitude!)
-
-        // Do any additional setup after loading the view.
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        picker.delegate = self
+        
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        //let tappedImage = tapGestureRecognizer.view as! UIImageView
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.delegate = self
+            picker.sourceType = .camera;
+            picker.allowsEditing = false
+            self.present(picker, animated: true, completion: nil)
+        } else {
+            print("Camera not found!")
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        imageView.contentMode = .scaleAspectFit //3
+        imageView.image = chosenImage //4
+        dismiss(animated: true, completion: nil) //5
+    }
+    
+    //What to do if the image picker cancels.
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func DurationButtonPress(_ sender: Any) {
@@ -51,19 +85,19 @@ class CreatePostViewController: UIViewController {
 
 }
 
-extension CreatePostViewController: UIPickerViewDelegate{
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //when duration is selected
-    }
-}
-
+//extension CreatePostViewController: UIPickerViewDelegate{
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        //when duration is selected
+//    }
+//}
+//
 //extension CreatePostViewController: UIPickerViewDataSource{
 //    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        <#code#>
+//
 //    }
 //
 //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        <#code#>
+//
 //    }
 //
 //    //data
