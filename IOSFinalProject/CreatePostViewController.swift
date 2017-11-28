@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CreatePostViewController: UIViewController {
     
     var latitude: Double? = nil
@@ -28,6 +29,14 @@ class CreatePostViewController: UIViewController {
     
     @IBAction func DurationButtonPress(_ sender: Any) {
         //Stuff
+    }
+    
+    // Populate post struct with fields for a post
+    func createNewDogPost(){
+        
+        var currDate = Date()
+        
+//        var post = Post(latitude: latitude, longitude: longitude ,numFlags: 0, startTime: currDate)
     }
     
     /*
