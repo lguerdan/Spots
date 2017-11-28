@@ -9,7 +9,7 @@
 import UIKit
 
 
-class CreatePostViewController: UIViewController {
+class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var latitude: Double? = nil
     var longitude: Double? = nil
@@ -29,6 +29,7 @@ class CreatePostViewController: UIViewController {
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = imageView.frame.height/2
         imageView.clipsToBounds = true
+        
     }
 
     override func didReceiveMemoryWarning() {
