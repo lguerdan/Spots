@@ -60,49 +60,52 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--Create Post-->
+        <!--Create-->
         <scene sceneID="Ph0-yt-5L5">
             <objects>
-                <viewController id="4Hg-dB-jbb" sceneMemberID="viewController">
+                <viewController id="4Hg-dB-jbb" customClass="CreatePostViewController" customModule="IOSFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4bT-lm-VR8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-bw-j8l">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-bw-j8l">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-40-MmT">
-                                        <rect key="frame" x="0.0" y="240" width="375" height="79"/>
+                                        <rect key="frame" x="0.0" y="241" width="375" height="80.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-5m-afW">
-                                        <rect key="frame" x="0.0" y="321" width="375" height="119"/>
+                                        <rect key="frame" x="0.0" y="321.5" width="375" height="120.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-YF-3S0">
-                                        <rect key="frame" x="0.0" y="442" width="375" height="79.5"/>
+                                        <rect key="frame" x="0.0" y="442" width="375" height="80.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Duration"/>
+                                        <connections>
+                                            <action selector="DurationButtonPress:" destination="4Hg-dB-jbb" eventType="touchUpInside" id="rh2-yh-y2S"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-7V-Vj1">
-                                        <rect key="frame" x="0.0" y="523.5" width="375" height="79.5"/>
+                                        <rect key="frame" x="0.0" y="522.5" width="375" height="80.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-3W-H1D">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="79.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="80.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Post"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-se-B2M">
-                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="79.5"/>
+                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="80.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
@@ -126,7 +129,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yq5-Ek-8UH"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Post" id="SfF-c5-BOx"/>
+                    <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrD-iI-T5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,7 +220,7 @@
             </objects>
             <point key="canvasLocation" x="1334" y="539"/>
         </scene>
-        <!--Post-->
+        <!--Doggo Post-->
         <scene sceneID="g7w-vx-eFX">
             <objects>
                 <viewController id="mhT-9g-eiE" sceneMemberID="viewController">
@@ -287,7 +290,7 @@
                         <viewLayoutGuide key="safeArea" id="c3C-AB-hal"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Post" id="4Fm-zI-MJF">
+                    <navigationItem key="navigationItem" title="Doggo Post" id="4Fm-zI-MJF">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="TmY-EW-Enp"/>
                     </navigationItem>
                 </viewController>
@@ -304,6 +307,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
