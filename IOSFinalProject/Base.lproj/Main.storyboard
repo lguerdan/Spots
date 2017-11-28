@@ -130,6 +130,9 @@
                         <viewLayoutGuide key="safeArea" id="yq5-Ek-8UH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
+                    <connections>
+                        <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrD-iI-T5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
