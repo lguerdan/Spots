@@ -9,9 +9,14 @@
 import UIKit
 
 class CreatePostViewController: UIViewController {
+    
+    var latitude: Double? = nil
+    var longitude: Double? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(latitude!)
+        print(longitude!)
 
         // Do any additional setup after loading the view.
     }

@@ -59,6 +59,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let CreatePostViewController = segue.destination as? CreatePostViewController {
+            CreatePostViewController.latitude = currLocation.latitude
+            CreatePostViewController.longitude = currLocation.longitude
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

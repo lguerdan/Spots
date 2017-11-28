@@ -15,8 +15,8 @@ struct Post {
     var description : String
     var startTime: Date
     var duration: Int
-    var latitude: Float
-    var longitude: Float
+    var latitude: Double
+    var longitude: Double
     var isOwner: Bool
     var numFlags: Int
 }
