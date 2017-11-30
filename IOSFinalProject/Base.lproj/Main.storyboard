@@ -53,6 +53,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="jdb-hK-Vlr" id="Yxo-NW-iOl"/>
                         <segue destination="mhT-9g-eiE" kind="show" identifier="ShowDogPost" id="y9j-jT-vX0"/>
                     </connections>
                 </viewController>

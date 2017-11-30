@@ -7,8 +7,10 @@
 //
 import CoreLocation
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var mapView: MKMapView!
     
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -19,6 +21,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }()
     
     var currLocation : CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var regionRadius: CLLocationDistance = 1000
     
     convenience init() {
         self.init()
@@ -26,10 +29,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // setting the initial location to Columbia, MO for testing purposes?
+        // want to eventually set the initial location to a radius around the user...
+        let initialLocation = CLLocation(latitude: 38.9404, longitude: -92.3277)
+        centerMapOnLocation(location: initialLocation)
+        
         let manager = self.locationManager
         self.currLocation = CLLocationCoordinate2D()
         manager.requestWhenInUseAuthorization()
         // Do any additional setup after loading the view.
+        
+        // test to add annotations to the mapView (STATIC THOUGH)
+        let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
+        mapView.addAnnotation(dogPost)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +76,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if let CreatePostViewController = segue.destination as? CreatePostViewController {
             CreatePostViewController.latitude = currLocation.latitude
             CreatePostViewController.longitude = currLocation.longitude
+        }
+    }
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
+    }
+    
+    let locationManager2 = CLLocationManager()
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager2.requestAlwaysAuthorization()
         }
     }
     
