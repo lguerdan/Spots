@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var moveToCreatePost: UIButton!
+    @IBOutlet weak var moveToProfile: UIBarButtonItem!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -43,6 +45,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // test to add annotations to the mapView (STATIC THOUGH)
         let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
         mapView.addAnnotation(dogPost)
+        
+        setImageIcons()
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,6 +102,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func setImageIcons() {
+        //E77C1E
+        let size = moveToCreatePost.frame.size
+        let image  = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: size)
+        moveToCreatePost.setBackgroundImage(image, for: .normal)
+        
+        let profileButton: UIButton = UIButton(type: UIButtonType.custom)
+        profileButton.frame.size = CGSize(width: 30, height: 30)
+        //add function for button
+        //button.addTarget(self, action: Selector("goToProfile"), for: UIControlEvents.touchUpInside)
+        //set frame
+        let profileSize = profileButton.frame.size
+        let profileImage = UIImage(named: "Profile")?.resizedImageWithinSquare(rectSize: profileSize)
+        profileButton.setImage(profileImage, for: .normal)
+        
+        let barButton = UIBarButtonItem(customView: profileButton)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        
+    }
+    
+    
 
     /*
     // MARK: - Navigation
@@ -109,4 +135,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     */
 
+}
+
+extension UIImage {
+    /// Returns a image that fills in newSize
+    func resizedImage(newSize: CGSize) -> UIImage {
+        // Guard newSize is different
+        guard self.size != newSize else { return self }
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    /// Returns a resized image that fits in rectSize, keeping it's aspect ratio
+    /// Note that the new image size is not rectSize, but within it.
+    func resizedImageWithinRect(rectSize: CGSize) -> UIImage {
+        let widthFactor = size.width / rectSize.width
+        let heightFactor = size.height / rectSize.height
+        
+        var resizeFactor = widthFactor
+        if size.height > size.width {
+            resizeFactor = heightFactor
+        }
+        
+        let newSize = CGSize(width: size.width/resizeFactor, height: size.height/resizeFactor)
+        let resized = resizedImage(newSize: newSize)
+        return resized
+    }
+    
+    func resizedImageWithinSquare(rectSize: CGSize) -> UIImage {
+        let minValue = min(rectSize.height, rectSize.width)
+        let size = CGSize(width: minValue, height: minValue)
+        
+        return self.resizedImage(newSize: size)
+    }
 }
