@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55475D981FCDE781003B0045 /* post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55475D971FCDE781003B0045 /* post.swift */; };
+		55D1B0321FD08C9C00E514A3 /* CKCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1B0311FD08C9C00E514A3 /* CKCodable.swift */; };
 		F48E1E5F1FBE185300AF61E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E1E5E1FBE185300AF61E9 /* MapViewController.swift */; };
 		F48E1E611FBE209800AF61E9 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */; };
 		F4B6AA5A1FB4D4060058AC51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6AA591FB4D4060058AC51 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		1755BFB31FCFBA0A009BF0FF /* UniversityOfMissouri_Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UniversityOfMissouri_Location.gpx; sourceTree = "<group>"; };
 		55475D971FCDE781003B0045 /* post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = post.swift; sourceTree = "<group>"; };
+		55D1B0311FD08C9C00E514A3 /* CKCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKCodable.swift; path = ../../../Downloads/CloudKitExample/CloudKitExample/CKCodable.swift; sourceTree = "<group>"; };
 		F48E1E5E1FBE185300AF61E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		F4B6AA561FB4D4060058AC51 /* IOSFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 		F4B6AA581FB4D4060058AC51 /* IOSFinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				55D1B0311FD08C9C00E514A3 /* CKCodable.swift */,
 				F4B6AA6E1FB4D64E0058AC51 /* IOSFinalProject.entitlements */,
 				F4B6AA591FB4D4060058AC51 /* AppDelegate.swift */,
 				F4B6AA5D1FB4D4060058AC51 /* Main.storyboard */,
@@ -167,6 +170,7 @@
 			files = (
 				F4B6AA5A1FB4D4060058AC51 /* AppDelegate.swift in Sources */,
 				55475D981FCDE781003B0045 /* post.swift in Sources */,
+				55D1B0321FD08C9C00E514A3 /* CKCodable.swift in Sources */,
 				F4B6AA621FB4D4060058AC51 /* IOSFinalProject.xcdatamodeld in Sources */,
 				F48E1E611FBE209800AF61E9 /* CreatePostViewController.swift in Sources */,
 				F48E1E5F1FBE185300AF61E9 /* MapViewController.swift in Sources */,
