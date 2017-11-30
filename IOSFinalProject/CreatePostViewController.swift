@@ -44,6 +44,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.addGestureRecognizer(tapGestureRecognizer)
         picker.delegate = self
         
+        self.navigationController?.navigationBar.barTintColor = .white
+    
+        
         //Duration picker
         durationPicker.delegate = self
         durationPicker.dataSource = self
