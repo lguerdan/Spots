@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var moveToCreatePost: UIButton!
+    @IBOutlet weak var moveToProfile: UIBarButtonItem!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -35,6 +37,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let initialLocation = CLLocation(latitude: 38.9404, longitude: -92.3277)
         centerMapOnLocation(location: initialLocation)
         
+        mapView.delegate = self
+        
         let manager = self.locationManager
         self.currLocation = CLLocationCoordinate2D()
         manager.requestWhenInUseAuthorization()
@@ -43,6 +47,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // test to add annotations to the mapView (STATIC THOUGH)
         let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
         mapView.addAnnotation(dogPost)
+        
+        setImageIcons()
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,6 +104,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func setImageIcons() {
+        //E77C1E
+        let size = moveToCreatePost.frame.size
+        let image  = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: size)
+        moveToCreatePost.setBackgroundImage(image, for: .normal)
+        
+        let profileButton: UIButton = UIButton(type: UIButtonType.custom)
+        profileButton.frame.size = CGSize(width: 30, height: 30)
+        //add function for button
+        //button.addTarget(self, action: Selector("goToProfile"), for: UIControlEvents.touchUpInside)
+        //set frame
+        let profileSize = profileButton.frame.size
+        let profileImage = UIImage(named: "Profile")?.resizedImageWithinSquare(rectSize: profileSize)
+        profileButton.setImage(profileImage, for: .normal)
+        
+        let barButton = UIBarButtonItem(customView: profileButton)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        
+    }
+    
+    
 
     /*
     // MARK: - Navigation
@@ -109,4 +137,73 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     */
 
+}
+
+extension MapViewController: MKMapViewDelegate {
+    // gets called for every annotation added to the map to return the view for each annotation
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // in case the map uses other annotations, check if the annotation is of type DogPost...
+        // need to change this to use our structure
+        guard let annotation = annotation as? DogPost else { return nil }
+        // To make markers appear, create each view as an MKMarkerAnnotationView
+        let identifier = "marker"
+        var view: MKAnnotationView
+        // a map view reuses annotation views that are no longer visible. check to see if a reusable annotation view is available before creating a new one.
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            //  create a new MKMarkerAnnotationView object, if an annotation view could not be dequeued. It uses the title and subtitle properties of your Artwork class to determine what to show in the callout.
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            let rightButton: AnyObject! = UIButton(type: UIButtonType.detailDisclosure)
+            view.rightCalloutAccessoryView = rightButton as? UIView
+//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "ShowDogPost", sender: self)
+        }
+    }
+}
+    
+extension UIImage {
+    /// Returns a image that fills in newSize
+    func resizedImage(newSize: CGSize) -> UIImage {
+        // Guard newSize is different
+        guard self.size != newSize else { return self }
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    
+    /// Returns a resized image that fits in rectSize, keeping it's aspect ratio
+    /// Note that the new image size is not rectSize, but within it.
+    func resizedImageWithinRect(rectSize: CGSize) -> UIImage {
+        let widthFactor = size.width / rectSize.width
+        let heightFactor = size.height / rectSize.height
+        
+        var resizeFactor = widthFactor
+        if size.height > size.width {
+            resizeFactor = heightFactor
+        }
+        
+        let newSize = CGSize(width: size.width/resizeFactor, height: size.height/resizeFactor)
+        let resized = resizedImage(newSize: newSize)
+        return resized
+    }
+    
+    func resizedImageWithinSquare(rectSize: CGSize) -> UIImage {
+        let minValue = min(rectSize.height, rectSize.width)
+        let size = CGSize(width: minValue, height: minValue)
+        
+        return self.resizedImage(newSize: size)
+    }
 }
