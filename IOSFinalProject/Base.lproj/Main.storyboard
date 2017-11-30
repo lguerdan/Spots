@@ -78,40 +78,38 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-40-MmT">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="255" width="375" height="84.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-5m-afW">
-                                        <rect key="frame" x="0.0" y="321.5" width="375" height="120.5"/>
+                                        <rect key="frame" x="0.0" y="339.5" width="375" height="127.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-YF-3S0">
-                                        <rect key="frame" x="0.0" y="442" width="375" height="80.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Duration"/>
-                                        <connections>
-                                            <action selector="DurationButtonPress:" destination="4Hg-dB-jbb" eventType="touchUpInside" id="rh2-yh-y2S"/>
-                                        </connections>
-                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-l4-zvd">
+                                        <rect key="frame" x="0.0" y="467" width="375" height="51"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-7V-Vj1">
-                                        <rect key="frame" x="0.0" y="522.5" width="375" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="518" width="375" height="85"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-3W-H1D">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="80.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="85"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Post"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-se-B2M">
-                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="80.5"/>
+                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="85"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
@@ -119,8 +117,8 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="yUr-YF-3S0" secondAttribute="height" multiplier="3:1" id="5Fo-a4-J5i"/>
                                     <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="GKc-5m-afW" secondAttribute="height" multiplier="2:1" id="STl-qh-lEb"/>
+                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="s1l-l4-zvd" secondAttribute="height" multiplier="5:1" id="VyF-MP-xtJ"/>
                                     <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="YBX-7V-Vj1" secondAttribute="height" multiplier="3:1" id="ghr-3T-BSk"/>
                                     <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="kcT-40-MmT" secondAttribute="height" multiplier="3:1" id="vS7-dZ-F8e"/>
                                 </constraints>
@@ -137,6 +135,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
                     <connections>
+                        <outlet property="durationTextField" destination="s1l-l4-zvd" id="hbZ-pU-lgn"/>
                         <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
                     </connections>
                 </viewController>
