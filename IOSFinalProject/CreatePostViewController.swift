@@ -17,7 +17,24 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var dogName: UITextField!
+    @IBOutlet weak var durationTextField: UITextField!
     
+    //Duration picker
+    var times: [String] = ["5 minutes", "10 mintues", "15 minutes", "30 minutes", "45 minutes", "60 minutes"]
+    
+    let durationPicker = UIPickerView()
+    let toolBar: UIToolbar = {
+        let bar = UIToolbar()
+        bar.barStyle = .default
+        bar.isTranslucent = true
+        bar.sizeToFit()
+        
+        bar.isUserInteractionEnabled = true
+        
+        return bar
+    }()
+    
+    //Image picker
     let picker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -26,11 +43,34 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
         picker.delegate = self
+        
+        self.navigationController?.navigationBar.barTintColor = .white
+    
+        
+        //Duration picker
+        durationPicker.delegate = self
+        durationPicker.dataSource = self
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(CreatePostViewController.resignKeyboard))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        
+        durationTextField.inputView = durationPicker
+        durationTextField.inputAccessoryView = toolBar
+        
+        durationTextField.delegate = self
+        durationTextField.tintColor = .clear
+        //end of duration picker
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func resignKeyboard() {
+        durationTextField.resignFirstResponder()
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -89,21 +129,29 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
 }
 
-//extension CreatePostViewController: UIPickerViewDelegate{
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        //when duration is selected
-//    }
-//}
-//
-//extension CreatePostViewController: UIPickerViewDataSource{
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//
-//    }
-//
-//    //data
-//}
+extension CreatePostViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        durationTextField.text = times.first
+    }
+}
+
+extension CreatePostViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        durationTextField.text = "Duration \(times[row])"
+    }
+}
+
+extension CreatePostViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return times.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return times[row]
+    }
+}
 

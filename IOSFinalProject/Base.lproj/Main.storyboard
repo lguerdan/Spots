@@ -6,10 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GujaratiSangamMN.ttc">
+            <string>GujaratiSangamMN</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Spots-->
         <scene sceneID="tne-QT-ifu">
@@ -23,9 +29,12 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-F2-EKa">
-                                <rect key="frame" x="172" y="589" width="30" height="58"/>
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kbD-F2-EKa" secondAttribute="height" id="SwC-PK-JKJ"/>
+                                    <constraint firstAttribute="width" constant="30" id="zxU-No-bFe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <state key="normal" title="+"/>
                                 <connections>
                                     <segue destination="4Hg-dB-jbb" kind="show" id="3Fp-5p-8Ai"/>
                                 </connections>
@@ -54,6 +63,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="jdb-hK-Vlr" id="Yxo-NW-iOl"/>
+                        <outlet property="moveToCreatePost" destination="kbD-F2-EKa" id="QrY-eC-4ia"/>
                         <segue destination="mhT-9g-eiE" kind="show" identifier="ShowDogPost" id="y9j-jT-vX0"/>
                     </connections>
                 </viewController>
@@ -73,40 +83,40 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-40-MmT">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="255" width="375" height="84.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="30"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-5m-afW">
-                                        <rect key="frame" x="0.0" y="321.5" width="375" height="120.5"/>
+                                        <rect key="frame" x="0.0" y="339.5" width="375" height="127.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-YF-3S0">
-                                        <rect key="frame" x="0.0" y="442" width="375" height="80.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Duration"/>
-                                        <connections>
-                                            <action selector="DurationButtonPress:" destination="4Hg-dB-jbb" eventType="touchUpInside" id="rh2-yh-y2S"/>
-                                        </connections>
-                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-l4-zvd">
+                                        <rect key="frame" x="0.0" y="467" width="375" height="51"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-7V-Vj1">
-                                        <rect key="frame" x="0.0" y="522.5" width="375" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="518" width="375" height="85"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-3W-H1D">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="80.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="85"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Post"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-se-B2M">
-                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="80.5"/>
+                                                <rect key="frame" x="188.5" y="0.0" width="186.5" height="85"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
@@ -114,8 +124,8 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="yUr-YF-3S0" secondAttribute="height" multiplier="3:1" id="5Fo-a4-J5i"/>
                                     <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="GKc-5m-afW" secondAttribute="height" multiplier="2:1" id="STl-qh-lEb"/>
+                                    <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="s1l-l4-zvd" secondAttribute="height" multiplier="5:1" id="VyF-MP-xtJ"/>
                                     <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="YBX-7V-Vj1" secondAttribute="height" multiplier="3:1" id="ghr-3T-BSk"/>
                                     <constraint firstItem="MjG-Ui-cEq" firstAttribute="height" secondItem="kcT-40-MmT" secondAttribute="height" multiplier="3:1" id="vS7-dZ-F8e"/>
                                 </constraints>
@@ -132,6 +142,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
                     <connections>
+                        <outlet property="durationTextField" destination="s1l-l4-zvd" id="hbZ-pU-lgn"/>
                         <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
                     </connections>
                 </viewController>
@@ -237,17 +248,18 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
                                         <rect key="frame" x="0.0" y="190" width="375" height="62.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
                                         <rect key="frame" x="0.0" y="254.5" width="375" height="63"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -270,7 +282,7 @@
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CpT-ZH-OUJ">
                                         <rect key="frame" x="0.0" y="415.5" width="375" height="187.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -311,6 +323,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.90588235294117647" green="0.48627450980392156" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                         </textAttributes>

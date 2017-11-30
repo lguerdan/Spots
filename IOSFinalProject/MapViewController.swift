@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var moveToCreatePost: UIButton!
+    @IBOutlet weak var moveToProfile: UIBarButtonItem!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -45,6 +47,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // test to add annotations to the mapView (STATIC THOUGH)
         let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
         mapView.addAnnotation(dogPost)
+        
+        setImageIcons()
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,6 +103,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager2.requestAlwaysAuthorization()
         }
     }
+    
+    func setImageIcons() {
+        //E77C1E
+        let size = moveToCreatePost.frame.size
+        let image  = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: size)
+        moveToCreatePost.setBackgroundImage(image, for: .normal)
+        
+        let profileButton: UIButton = UIButton(type: UIButtonType.custom)
+        profileButton.frame.size = CGSize(width: 30, height: 30)
+        //add function for button
+        //button.addTarget(self, action: Selector("goToProfile"), for: UIControlEvents.touchUpInside)
+        //set frame
+        let profileSize = profileButton.frame.size
+        let profileImage = UIImage(named: "Profile")?.resizedImageWithinSquare(rectSize: profileSize)
+        profileButton.setImage(profileImage, for: .normal)
+        
+        let barButton = UIBarButtonItem(customView: profileButton)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+        
+    }
+    
     
 
     /*
