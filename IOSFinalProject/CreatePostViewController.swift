@@ -108,9 +108,34 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func submitDogPost(_ sender: Any) {
+        
+        if self.latitude == nil || self.longitude == nil{
+            print("nil 1")
+            return
+        }
+        if dogDesc.text == nil || dogName.text == nil || dogName.text == nil || durationTextField.text == nil{
+            print("nil 2")
+            return
+        }
+        
+    
+        let name = dogName.text!
+        let description = dogDesc.text!
+        let latitude = self.latitude!
+        let longitude =  self.longitude!
+        let durationText = durationTextField.text!
+        let durationInt = Int(durationText.components(separatedBy: " ")[0])!
+        let currDate = Date()
+        let post = Post(name: name, photo: imageView.image, description: description,
+                        startTime: currDate,  duration: durationInt, latitude: latitude,
+                        longitude: longitude, isOwner: false, numFlags: 0)
+        print(post)
+        
     }
     
     @IBAction func cancelDogPost(_ sender: Any) {
+        
+
     }
     
     
