@@ -26,13 +26,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
         picker.delegate = self
-        
-        imageView.layer.borderWidth = 1
-        imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.cornerRadius = imageView.frame.height/2
-        imageView.clipsToBounds = true
-        
     }
 
     override func didReceiveMemoryWarning() {
