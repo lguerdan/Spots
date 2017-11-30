@@ -15,6 +15,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     var longitude: Double? = nil
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var dogDesc: UITextView!
+    @IBOutlet weak var dogName: UITextField!
+    
     let picker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -73,6 +76,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
 //        var post = Post(latitude: latitude, longitude: longitude ,numFlags: 0, startTime: currDate)
     }
+    
+    @IBAction func submitDogPost(_ sender: Any) {
+    }
+    
+    @IBAction func cancelDogPost(_ sender: Any) {
+    }
+    
     
     /*
     // MARK: - Navigation
