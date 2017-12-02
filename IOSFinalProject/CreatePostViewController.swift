@@ -123,7 +123,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         let post = Post(name: name, photo: imageView.image, description: description,
                         startTime: currDate,  duration: durationInt, latitude: latitude,
                         longitude: longitude, isOwner: false, numFlags: 0)
-        print(post)
+        
         let zone = Zone.defaultPublicDatabase()
     
         // Perform Save
@@ -131,14 +131,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             if error != nil{
                 print(error)
             }
-            
-//            // Retrieve records
-//            zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-//                for post in posts{
-//                    print(post.name)
-//                }
-//
-//            })
+
         })
 
         // Retrieve User Information
