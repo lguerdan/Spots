@@ -112,14 +112,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //Stuff
     }
     
-    // Populate post struct with fields for a post
-    func createNewDogPost(){
-        
-        var currDate = Date()
-        
-//        var post = Post(latitude: latitude, longitude: longitude ,numFlags: 0, startTime: currDate)
-    }
-    
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
             print("nil 1")
@@ -141,26 +133,23 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         let post = Post(name: name, photo: imageView.image, description: description,
                         startTime: currDate,  duration: durationInt, latitude: latitude,
                         longitude: longitude, isOwner: false, numFlags: 0)
-        print(post)
-        var zone = Zone.defaultPublicDatabase()
+        
+        let zone = Zone.defaultPublicDatabase()
     
         // Perform Save
         zone.save(post, completionHandler: { (error) in
-            
-            // Retrieve records
-            zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-                print(posts)
-                
-            })
+            if error != nil{
+                print(error)
+            }
+
         })
-//
-//            // Retrieve User Information
-//            zone?.userInformation(completionHandler: { (user, error) in
-//                guard error == nil else { return }
-//
-//                print("User: \(user?.firstName ?? "")")
-//            })
-    
+
+        // Retrieve User Information
+        zone.userInformation(completionHandler: { (user, error) in
+            guard error == nil else { return }
+            print("User: \(user)")
+        
+        })
     }
 
     

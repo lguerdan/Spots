@@ -45,9 +45,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let manager = self.locationManager
         self.currLocation = CLLocationCoordinate2D()
         manager.requestWhenInUseAuthorization()
-        // Do any additional setup after loading the view.
         
-        // test to add annotations to the mapView (STATIC THOUGH)
+        // Retrieve records
+        let zone = Zone.defaultPublicDatabase()
+        zone.retrieveObjects(completionHandler: { (posts: [Post]) in
+            for post in posts{
+                print(post.name)
+            }
+        })
+        
+        
         let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
         mapView.addAnnotation(dogPost)
         
@@ -127,8 +134,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.rightBarButtonItem = barButton
         
     }
-    
-    
+
 
     /*
     // MARK: - Navigation

@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 
 struct Post : CloudKitCodable{
-    let recordType = "Category"
+    let recordType = "Post"
     var cloudInformation: CloudKitInformation?
     var name : String
     var photo: CodableImage?
