@@ -19,6 +19,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var durationTextField: UITextField!
     
+    
     //Duration picker
     var times: [String] = ["5 minutes", "10 mintues", "15 minutes", "30 minutes", "45 minutes", "60 minutes"]
     
@@ -63,7 +64,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationTextField.tintColor = .clear
         //end of duration picker
         
-        //toolbar
+        //toolbar font
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Gujarati Sangam MN", size: 20), NSAttributedStringKey.foregroundColor: UIColor.black], for: UIControlState.normal)
+     
+        
         
     }
 
