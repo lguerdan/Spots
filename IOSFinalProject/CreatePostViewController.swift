@@ -47,6 +47,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         // change of font and font color of navigation controller
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //Max character length
+        dogName.delegate = self
+        dogDesc.delegate = self
                 
         //Duration picker
         durationPicker.delegate = self
@@ -120,6 +124,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //Stuff
     }
     
+    
+    
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
             print("nil 1")
@@ -129,41 +135,44 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             print("nil 2")
             return
         }
-        
-        let name = dogName.text!
-        let description = dogDesc.text!
+        let name = self.dogName.text!
+        let description = self.dogDesc.text!
+        let image = self.imageView.image
         let latitude = self.latitude!
         let longitude =  self.longitude!
-        let durationText = durationTextField.text!
+        let durationText = self.durationTextField.text!
         print(durationText.components(separatedBy: " ")[1])
         let durationInt = Int(durationText.components(separatedBy: " ")[1])!
         let currDate = Date()
-        let post = Post(name: name, photo: imageView.image, description: description,
-                        startTime: currDate,  duration: durationInt, latitude: latitude,
-                        longitude: longitude, isOwner: false, numFlags: 0)
         
-        let zone = Zone.defaultPublicDatabase()
-    
-        // Perform Save
-        zone.save(post, completionHandler: { (error) in
-            if error != nil{
-                print(error)
-            }
-
-        })
-
         // Retrieve User Information
+        let zone = Zone.defaultPublicDatabase()
         zone.userInformation(completionHandler: { (user, error) in
-            guard error == nil else { return }
-            print("User: \(user)")
-        
+            guard error == nil else {
+                print("User error")
+                return
+            }
+            
+            var userName : String
+            userName = user?.firstName ?? ""
+            userName += user?.lastName ?? ""
+            
+            let post = Post(name: name, photo: image, description: description,
+                            startTime: currDate,  duration: durationInt, latitude: latitude,
+                            longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+            
+            print(post)
+            // Perform Save
+            zone.save(post, completionHandler: { (error) in
+                if error != nil{
+                    print(error as Any)
+                }
+
+            })
         })
     }
-
     
     @IBAction func cancelDogPost(_ sender: Any) {
-        
-
     }
     
     func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
@@ -191,9 +200,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
 }
 
+
 extension CreatePostViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        durationTextField.text = times.first
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 12
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dogName.resignFirstResponder()
@@ -220,6 +234,12 @@ extension CreatePostViewController: UITextViewDelegate {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let maxtext: Int = 150
+        //If the text is larger than the maxtext, the return is false
+        return textView.text.count + (text.count - range.length) <= maxtext
+    }
 }
 
 extension CreatePostViewController: UIPickerViewDelegate {
@@ -241,3 +261,7 @@ extension CreatePostViewController: UIPickerViewDataSource {
         return times[row]
     }
 }
+
+
+
+
