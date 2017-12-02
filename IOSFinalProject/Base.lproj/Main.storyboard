@@ -139,7 +139,6 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-l4-zvd">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="66.5"/>
-                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -201,28 +200,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="CmG-o7-RUR">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CmG-o7-RUR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-0d-yYV">
-                                        <rect key="frame" x="0.0" y="226" width="375" height="74.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Aa-3r-I7L">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-MG-uCD">
-                                        <rect key="frame" x="0.0" y="302.5" width="375" height="74.5"/>
+                                        <constraints>
+                                            <constraint firstItem="PN2-C1-ity" firstAttribute="leading" secondItem="1Aa-3r-I7L" secondAttribute="leading" id="CU7-Ng-aOQ"/>
+                                            <constraint firstItem="PN2-C1-ity" firstAttribute="top" secondItem="1Aa-3r-I7L" secondAttribute="top" id="aNE-wK-kV8"/>
+                                            <constraint firstAttribute="bottom" secondItem="PN2-C1-ity" secondAttribute="bottom" id="mdX-1T-e9Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="PN2-C1-ity" secondAttribute="trailing" id="pte-2p-gqT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpW-a9-j8s">
+                                        <rect key="frame" x="0.0" y="224.5" width="375" height="69.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-0d-yYV">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="69.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <constraints>
+                                            <constraint firstItem="OJ3-0d-yYV" firstAttribute="leading" secondItem="SpW-a9-j8s" secondAttribute="leading" constant="16" id="JSb-nI-z1L"/>
+                                            <constraint firstAttribute="bottom" secondItem="OJ3-0d-yYV" secondAttribute="bottom" id="UHh-Uv-ILe"/>
+                                            <constraint firstAttribute="trailing" secondItem="OJ3-0d-yYV" secondAttribute="trailing" constant="16" id="w5M-b7-8cz"/>
+                                            <constraint firstItem="OJ3-0d-yYV" firstAttribute="top" secondItem="SpW-a9-j8s" secondAttribute="top" id="ySQ-SY-9P5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-O2-zaM">
+                                        <rect key="frame" x="0.0" y="310" width="375" height="69"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-MG-uCD">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="69"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="WwZ-MG-uCD" firstAttribute="leading" secondItem="eFT-O2-zaM" secondAttribute="leading" constant="16" id="DKj-w1-3sN"/>
+                                            <constraint firstAttribute="trailing" secondItem="WwZ-MG-uCD" secondAttribute="trailing" constant="16" id="EgK-8e-cRa"/>
+                                            <constraint firstAttribute="bottom" secondItem="WwZ-MG-uCD" secondAttribute="bottom" id="lNf-Ld-hQy"/>
+                                            <constraint firstItem="WwZ-MG-uCD" firstAttribute="top" secondItem="eFT-O2-zaM" secondAttribute="top" id="ueB-G9-TBV"/>
+                                        </constraints>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-rY-h4o">
-                                        <rect key="frame" x="0.0" y="379" width="375" height="224"/>
+                                        <rect key="frame" x="0.0" y="395" width="375" height="208"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="MCP-nG-CsI" detailTextLabel="Qd6-mg-xmK" imageView="v19-5V-6HI" style="IBUITableViewCellStyleSubtitle" id="Oyd-7f-Q8n">
@@ -257,9 +292,9 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="PN2-C1-ity" firstAttribute="height" secondItem="OJ3-0d-yYV" secondAttribute="height" multiplier="3:1" id="Pkl-b3-SVu"/>
-                                    <constraint firstItem="PN2-C1-ity" firstAttribute="height" secondItem="WwZ-MG-uCD" secondAttribute="height" multiplier="3:1" id="vp6-VL-IDU"/>
-                                    <constraint firstItem="PN2-C1-ity" firstAttribute="height" secondItem="PL2-rY-h4o" secondAttribute="height" id="zSL-hY-fpl"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="SpW-a9-j8s" secondAttribute="height" multiplier="3:1" id="6ex-2f-Mlv"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="PL2-rY-h4o" secondAttribute="height" id="Qp1-xh-Hqk"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="eFT-O2-zaM" secondAttribute="height" multiplier="3:1" id="nbw-iT-zD3"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -286,32 +321,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-Du-J0g">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-Du-J0g">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
-                                        <rect key="frame" x="0.0" y="190" width="375" height="62.5"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
-                                        <rect key="frame" x="0.0" y="254.5" width="375" height="63"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55a-Qq-9av">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Iby-Jm-5YK" secondAttribute="trailing" id="cfp-Vn-OoS"/>
+                                            <constraint firstAttribute="bottom" secondItem="Iby-Jm-5YK" secondAttribute="bottom" id="iRD-Uz-f5j"/>
+                                            <constraint firstItem="Iby-Jm-5YK" firstAttribute="leading" secondItem="55a-Qq-9av" secondAttribute="leading" id="o0D-J7-vQo"/>
+                                            <constraint firstItem="Iby-Jm-5YK" firstAttribute="top" secondItem="55a-Qq-9av" secondAttribute="top" id="wGr-vA-Hie"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMH-sg-pGd">
+                                        <rect key="frame" x="0.0" y="247" width="375" height="58"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="58"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="qB6-Du-RpG" firstAttribute="top" secondItem="dMH-sg-pGd" secondAttribute="top" id="0f8-er-gye"/>
+                                            <constraint firstAttribute="bottom" secondItem="qB6-Du-RpG" secondAttribute="bottom" id="JGd-v1-EZP"/>
+                                            <constraint firstItem="qB6-Du-RpG" firstAttribute="leading" secondItem="dMH-sg-pGd" secondAttribute="leading" constant="16" id="lEv-Il-dIK"/>
+                                            <constraint firstAttribute="trailing" secondItem="qB6-Du-RpG" secondAttribute="trailing" constant="16" id="oDV-Ns-SrT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-lp-pth">
+                                        <rect key="frame" x="0.0" y="321" width="375" height="57.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="57.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="HM4-ff-zI6" firstAttribute="top" secondItem="XLn-lp-pth" secondAttribute="top" id="2Qz-nm-hK6"/>
+                                            <constraint firstItem="HM4-ff-zI6" firstAttribute="leading" secondItem="XLn-lp-pth" secondAttribute="leading" constant="16" id="7qf-P4-FW6"/>
+                                            <constraint firstAttribute="trailing" secondItem="HM4-ff-zI6" secondAttribute="trailing" constant="16" id="7yg-PY-RFV"/>
+                                            <constraint firstAttribute="bottom" secondItem="HM4-ff-zI6" secondAttribute="bottom" id="Gac-88-IJ2"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZu-sN-yDN">
-                                        <rect key="frame" x="0.0" y="319.5" width="375" height="94"/>
+                                        <rect key="frame" x="0.0" y="394.5" width="375" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O1-DY-BmZ">
-                                                <rect key="frame" x="140" y="17" width="95.5" height="59"/>
+                                                <rect key="frame" x="140" y="9" width="95.5" height="59"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -323,19 +392,29 @@
                                             <constraint firstItem="4O1-DY-BmZ" firstAttribute="centerY" secondItem="TZu-sN-yDN" secondAttribute="centerY" id="jvv-Ij-nu7"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CpT-ZH-OUJ">
-                                        <rect key="frame" x="0.0" y="415.5" width="375" height="187.5"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </string>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igq-DD-61F">
+                                        <rect key="frame" x="0.0" y="487.5" width="375" height="115.5"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CpT-ZH-OUJ">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="99.5"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="CpT-ZH-OUJ" secondAttribute="bottom" constant="16" id="2gh-Au-Nov"/>
+                                            <constraint firstAttribute="trailing" secondItem="CpT-ZH-OUJ" secondAttribute="trailing" constant="16" id="9QR-Sn-uT1"/>
+                                            <constraint firstItem="CpT-ZH-OUJ" firstAttribute="leading" secondItem="igq-DD-61F" secondAttribute="leading" constant="16" id="DTX-Wl-VUi"/>
+                                            <constraint firstItem="CpT-ZH-OUJ" firstAttribute="top" secondItem="igq-DD-61F" secondAttribute="top" id="nWJ-ii-xRc"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="qB6-Du-RpG" secondAttribute="height" multiplier="3:1" id="4zC-gS-DUL"/>
-                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="CpT-ZH-OUJ" secondAttribute="height" id="NwI-6G-U3B"/>
-                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="TZu-sN-yDN" secondAttribute="height" multiplier="2:1" id="hek-iA-9vB"/>
-                                    <constraint firstItem="Iby-Jm-5YK" firstAttribute="height" secondItem="HM4-ff-zI6" secondAttribute="height" multiplier="3:1" id="pd6-hl-orb"/>
+                                    <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="dMH-sg-pGd" secondAttribute="height" multiplier="4:1" id="5Q5-2g-kqO"/>
+                                    <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="XLn-lp-pth" secondAttribute="height" multiplier="4:1" id="8nK-HL-1SH"/>
+                                    <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="TZu-sN-yDN" secondAttribute="height" multiplier="3:1" id="MIc-Qa-oxU"/>
+                                    <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="igq-DD-61F" secondAttribute="height" multiplier="2:1" id="P8p-9n-Nfw"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -382,6 +461,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Camera" width="170" height="170"/>
         <image name="Filler" width="2553" height="3410"/>
     </resources>
 </document>

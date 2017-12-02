@@ -45,9 +45,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let manager = self.locationManager
         self.currLocation = CLLocationCoordinate2D()
         manager.requestWhenInUseAuthorization()
-        // Do any additional setup after loading the view.
         
-        // test to add annotations to the mapView (STATIC THOUGH)
+        // Retrieve records
+        let zone = Zone.defaultPublicDatabase()
+        zone.retrieveObjects(completionHandler: { (posts: [Post]) in
+            for post in posts{
+                print(post.name)
+            }
+        })
+        
+        
         let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
         mapView.addAnnotation(dogPost)
         
@@ -127,8 +134,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.rightBarButtonItem = barButton
         
     }
-    
-    
+
 
     /*
     // MARK: - Navigation
@@ -157,22 +163,57 @@ extension MapViewController: MKMapViewDelegate {
             view = dequeuedView
         } else {
             //  create a new MKMarkerAnnotationView object, if an annotation view could not be dequeued. It uses the title and subtitle properties of your Artwork class to determine what to show in the callout.
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view = DogAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             let rightButton: AnyObject! = UIButton(type: UIButtonType.detailDisclosure)
             view.rightCalloutAccessoryView = rightButton as? UIView
 //            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
+        view.image = UIImage(named: "Dog")?.resizedImageWithinSquare(rectSize: CGSize(width: 56, height: 56))
+        view.image = maskRoundedImage(image: view.image!, radius: 28)
         return view
     }
+    
+    func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
+        let imageView: UIImageView = UIImageView(image: image)
+        let layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        layer.borderWidth = 2
+        layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return roundedImage!
+    }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if control == view.rightCalloutAccessoryView {
             performSegue(withIdentifier: "ShowDogPost", sender: self)
         }
     }
 }
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
     
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
+
 extension UIImage {
     /// Returns a image that fills in newSize
     func resizedImage(newSize: CGSize) -> UIImage {
