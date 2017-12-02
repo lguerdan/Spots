@@ -156,9 +156,17 @@
                                         <rect key="frame" x="0.0" y="537" width="375" height="66"/>
                                         <items>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="RAv-24-zAi"/>
-                                            <barButtonItem title="Post" id="ygv-dK-2mS"/>
+                                            <barButtonItem title="Post" id="ygv-dK-2mS">
+                                                <connections>
+                                                    <action selector="submitDogPost:" destination="4Hg-dB-jbb" id="Xru-xM-qwH"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gN8-Pp-5TA"/>
-                                            <barButtonItem title="Cancel" id="bBn-YK-HA5"/>
+                                            <barButtonItem title="Cancel" id="bBn-YK-HA5">
+                                                <connections>
+                                                    <action selector="cancelDogPost:" destination="4Hg-dB-jbb" id="EOG-7O-FN3"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Y2h-BX-i7N"/>
                                         </items>
                                     </toolbar>
@@ -461,7 +469,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="170" height="170"/>
         <image name="Filler" width="2553" height="3410"/>
     </resources>
 </document>

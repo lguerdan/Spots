@@ -122,42 +122,47 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             print("nil 2")
             return
         }
-        
-        let name = dogName.text!
-        let description = dogDesc.text!
+        let name = self.dogName.text!
+        let description = self.dogDesc.text!
+        let image = self.imageView.image
         let latitude = self.latitude!
         let longitude =  self.longitude!
-        let durationText = durationTextField.text!
+        let durationText = self.durationTextField.text!
         print(durationText.components(separatedBy: " ")[1])
         let durationInt = Int(durationText.components(separatedBy: " ")[1])!
         let currDate = Date()
-        let post = Post(name: name, photo: imageView.image, description: description,
-                        startTime: currDate,  duration: durationInt, latitude: latitude,
-                        longitude: longitude, isOwner: false, numFlags: 0)
         
-        let zone = Zone.defaultPublicDatabase()
-    
-        // Perform Save
-        zone.save(post, completionHandler: { (error) in
-            if error != nil{
-                print(error)
-            }
-
-        })
-
         // Retrieve User Information
+        let zone = Zone.defaultPublicDatabase()
         zone.userInformation(completionHandler: { (user, error) in
-            guard error == nil else { return }
-            print("User: \(user)")
-        
+            guard error == nil else {
+                print("User error")
+                return
+            }
+            
+            var userName : String
+            userName = user?.firstName ?? ""
+            userName += user?.lastName ?? ""
+            
+            let post = Post(name: name, photo: image, description: description,
+                            startTime: currDate,  duration: durationInt, latitude: latitude,
+                            longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+            
+            print(post)
+            // Perform Save
+            zone.save(post, completionHandler: { (error) in
+                if error != nil{
+                    print(error as Any)
+                }
+
+            })
         })
     }
-
     
     @IBAction func cancelDogPost(_ sender: Any) {
-        
-
     }
+    
+
     
     
     /*
