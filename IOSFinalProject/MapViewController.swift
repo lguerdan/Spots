@@ -39,6 +39,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         mapView.delegate = self
         
+        // change of font and font color of navigation controller
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
         let manager = self.locationManager
         self.currLocation = CLLocationCoordinate2D()
         manager.requestWhenInUseAuthorization()
