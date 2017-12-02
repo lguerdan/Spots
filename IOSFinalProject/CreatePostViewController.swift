@@ -19,6 +19,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var durationTextField: UITextField!
     
+    
     //Duration picker
     var times: [String] = ["5 minutes", "10 mintues", "15 minutes", "30 minutes", "45 minutes", "60 minutes"]
     
@@ -67,8 +68,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationTextField.tintColor = .clear
         //end of duration picker
         
-        //toolbar
+        //toolbar font
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Gujarati Sangam MN", size: 20), NSAttributedStringKey.foregroundColor: UIColor.black], for: UIControlState.normal)
+     
         
+        
+        //Dog description accessory
+        dogDesc.inputAccessoryView = toolBar
+        dogDesc.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,6 +85,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @objc func resignKeyboard() {
         durationTextField.resignFirstResponder()
+        dogDesc.resignFirstResponder()
+        dogName.resignFirstResponder()
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -132,26 +141,23 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         let post = Post(name: name, photo: imageView.image, description: description,
                         startTime: currDate,  duration: durationInt, latitude: latitude,
                         longitude: longitude, isOwner: false, numFlags: 0)
-        print(post)
-        var zone = Zone.defaultPublicDatabase()
+        
+        let zone = Zone.defaultPublicDatabase()
     
         // Perform Save
         zone.save(post, completionHandler: { (error) in
-            
-            // Retrieve records
-            zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-                print(posts)
-                
-            })
+            if error != nil{
+                print(error)
+            }
+
         })
-//
-//            // Retrieve User Information
-//            zone?.userInformation(completionHandler: { (user, error) in
-//                guard error == nil else { return }
-//
-//                print("User: \(user?.firstName ?? "")")
-//            })
-    
+
+        // Retrieve User Information
+        zone.userInformation(completionHandler: { (user, error) in
+            guard error == nil else { return }
+            print("User: \(user)")
+        
+        })
     }
 
     
