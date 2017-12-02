@@ -48,12 +48,14 @@ class DogPost: NSObject, MKAnnotation {
     let desc: String
     let coordinate: CLLocationCoordinate2D
     let duration: Int
+    let photo: UIImage
     
-    init(title: String, desc: String, coordinate: CLLocationCoordinate2D, duration: Int) {
+    init(title: String, desc: String, coordinate: CLLocationCoordinate2D, duration: Int, photo: UIImage) {
         self.title = title
         self.desc = desc
         self.coordinate = coordinate
         self.duration = duration
+        self.photo = photo
         
         super.init()
     }
