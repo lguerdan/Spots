@@ -22,9 +22,10 @@ struct Post : CloudKitCodable{
     var longitude: Double
     var isOwner: Bool
     var numFlags: Int
+    var posterName: String
     
     init(name: String, photo: UIImage?, description: String, startTime: Date,
-         duration: Int, latitude: Double, longitude: Double, isOwner: Bool, numFlags: Int) {
+         duration: Int, latitude: Double, longitude: Double, isOwner: Bool, numFlags: Int, posterName: String) {
         
         self.name = name
         self.description = description
@@ -34,6 +35,7 @@ struct Post : CloudKitCodable{
         self.longitude = longitude
         self.isOwner = isOwner
         self.numFlags = numFlags
+        self.posterName = posterName
         
         if let photo = photo {
             self.photo = CodableImage(image: photo)
