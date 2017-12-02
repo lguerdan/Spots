@@ -44,6 +44,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.addGestureRecognizer(tapGestureRecognizer)
         picker.delegate = self
         
+        // change of font and font color of navigation controller
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+                
         //Duration picker
         durationPicker.delegate = self
         durationPicker.dataSource = self
@@ -194,4 +197,5 @@ extension CreatePostViewController: UIPickerViewDataSource {
         return times[row]
     }
 }
+
 
