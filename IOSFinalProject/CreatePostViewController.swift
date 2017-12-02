@@ -62,6 +62,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationTextField.delegate = self
         durationTextField.tintColor = .clear
         //end of duration picker
+        
+        //toolbar
+        
     }
 
     override func didReceiveMemoryWarning() {
