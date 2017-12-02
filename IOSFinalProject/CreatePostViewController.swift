@@ -66,6 +66,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //Dog name input field accessory and delegate (incase the hit return instead of done)
         dogName.inputAccessoryView = toolBar
         dogName.delegate = self
+        //toolbar
         
         //Dog description accessory
         dogDesc.inputAccessoryView = toolBar

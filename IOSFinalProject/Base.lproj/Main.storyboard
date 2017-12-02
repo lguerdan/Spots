@@ -82,20 +82,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXR-bw-j8l">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-40-MmT">
-                                        <rect key="frame" x="0.0" y="255" width="375" height="84.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-5m-afW">
-                                        <rect key="frame" x="0.0" y="339.5" width="375" height="127.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLZ-RM-b9z">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
+                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="MjG-Ui-cEq" firstAttribute="top" secondItem="wLZ-RM-b9z" secondAttribute="top" id="4QA-Ta-xwM"/>
@@ -208,11 +203,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CmG-o7-RUR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-0d-yYV">
-                                        <rect key="frame" x="0.0" y="226" width="375" height="74.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Aa-3r-I7L">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="PN2-C1-ity" firstAttribute="leading" secondItem="1Aa-3r-I7L" secondAttribute="leading" id="CU7-Ng-aOQ"/>
@@ -327,24 +324,58 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-Du-J0g">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
-                                        <rect key="frame" x="0.0" y="190" width="375" height="62.5"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
-                                        <rect key="frame" x="0.0" y="254.5" width="375" height="63"/>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55a-Qq-9av">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Iby-Jm-5YK" secondAttribute="trailing" id="cfp-Vn-OoS"/>
+                                            <constraint firstAttribute="bottom" secondItem="Iby-Jm-5YK" secondAttribute="bottom" id="iRD-Uz-f5j"/>
+                                            <constraint firstItem="Iby-Jm-5YK" firstAttribute="leading" secondItem="55a-Qq-9av" secondAttribute="leading" id="o0D-J7-vQo"/>
+                                            <constraint firstItem="Iby-Jm-5YK" firstAttribute="top" secondItem="55a-Qq-9av" secondAttribute="top" id="wGr-vA-Hie"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMH-sg-pGd">
+                                        <rect key="frame" x="0.0" y="247" width="375" height="58"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="58"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="qB6-Du-RpG" firstAttribute="top" secondItem="dMH-sg-pGd" secondAttribute="top" id="0f8-er-gye"/>
+                                            <constraint firstAttribute="bottom" secondItem="qB6-Du-RpG" secondAttribute="bottom" id="JGd-v1-EZP"/>
+                                            <constraint firstItem="qB6-Du-RpG" firstAttribute="leading" secondItem="dMH-sg-pGd" secondAttribute="leading" constant="16" id="lEv-Il-dIK"/>
+                                            <constraint firstAttribute="trailing" secondItem="qB6-Du-RpG" secondAttribute="trailing" constant="16" id="oDV-Ns-SrT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-lp-pth">
+                                        <rect key="frame" x="0.0" y="321" width="375" height="57.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
+                                                <rect key="frame" x="16" y="0.0" width="343" height="57.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="HM4-ff-zI6" firstAttribute="top" secondItem="XLn-lp-pth" secondAttribute="top" id="2Qz-nm-hK6"/>
+                                            <constraint firstItem="HM4-ff-zI6" firstAttribute="leading" secondItem="XLn-lp-pth" secondAttribute="leading" constant="16" id="7qf-P4-FW6"/>
+                                            <constraint firstAttribute="trailing" secondItem="HM4-ff-zI6" secondAttribute="trailing" constant="16" id="7yg-PY-RFV"/>
+                                            <constraint firstAttribute="bottom" secondItem="HM4-ff-zI6" secondAttribute="bottom" id="Gac-88-IJ2"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZu-sN-yDN">
                                         <rect key="frame" x="0.0" y="394.5" width="375" height="77"/>
                                         <subviews>
