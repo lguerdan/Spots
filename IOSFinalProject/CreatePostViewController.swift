@@ -62,6 +62,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationTextField.delegate = self
         durationTextField.tintColor = .clear
         //end of duration picker
+        
+        //Dog name input field accessory and delegate (incase the hit return instead of done)
+        dogName.inputAccessoryView = toolBar
+        dogName.delegate = self
+        
+        //Dog description accessory
+        dogDesc.inputAccessoryView = toolBar
+        dogDesc.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +79,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @objc func resignKeyboard() {
         durationTextField.resignFirstResponder()
+        dogDesc.resignFirstResponder()
+        dogName.resignFirstResponder()
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -176,6 +186,31 @@ extension CreatePostViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         durationTextField.text = times.first
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dogName.resignFirstResponder()
+        return true
+    }
+}
+
+extension CreatePostViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        moveTextView(textView, moveDistance: -250, up: true)
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        moveTextView(textView, moveDistance: -250, up: false)
+    }
+    
+    func moveTextView(_ textView: UITextView, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
 }
 
 extension CreatePostViewController: UIPickerViewDelegate {
@@ -197,5 +232,3 @@ extension CreatePostViewController: UIPickerViewDataSource {
         return times[row]
     }
 }
-
-
