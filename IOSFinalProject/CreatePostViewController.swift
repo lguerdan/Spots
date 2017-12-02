@@ -181,13 +181,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
 }
 
-extension CreatePostViewController: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let maxtext: Int = 150
-        //If the text is larger than the maxtext, the return is false
-        return textView.text.count + (text.count - range.length) <= maxtext
-    }
-}
 
 extension CreatePostViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -197,7 +190,37 @@ extension CreatePostViewController: UITextFieldDelegate {
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dogName.resignFirstResponder()
+        return true
+    }
+}
+
+extension CreatePostViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        moveTextView(textView, moveDistance: -250, up: true)
+    }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        moveTextView(textView, moveDistance: -250, up: false)
+    }
+    
+    func moveTextView(_ textView: UITextView, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let maxtext: Int = 150
+        //If the text is larger than the maxtext, the return is false
+        return textView.text.count + (text.count - range.length) <= maxtext
+    }
 }
 
 extension CreatePostViewController: UIPickerViewDelegate {
