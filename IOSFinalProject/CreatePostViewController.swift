@@ -47,6 +47,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         // change of font and font color of navigation controller
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //Max character length
+        dogName.delegate = self
+        dogDesc.delegate = self
                 
         //Duration picker
         durationPicker.delegate = self
@@ -114,6 +118,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //Stuff
     }
     
+    
+    
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
             print("nil 1")
@@ -161,6 +167,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
+    
+    
     /*
     // MARK: - Navigation
 
@@ -173,9 +181,14 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
 }
 
+
 extension CreatePostViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        durationTextField.text = times.first
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 12
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dogName.resignFirstResponder()
@@ -202,6 +215,12 @@ extension CreatePostViewController: UITextViewDelegate {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let maxtext: Int = 150
+        //If the text is larger than the maxtext, the return is false
+        return textView.text.count + (text.count - range.length) <= maxtext
+    }
 }
 
 extension CreatePostViewController: UIPickerViewDelegate {
@@ -223,3 +242,7 @@ extension CreatePostViewController: UIPickerViewDataSource {
         return times[row]
     }
 }
+
+
+
+
