@@ -50,10 +50,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let zone = Zone.defaultPublicDatabase()
         zone.retrieveObjects(completionHandler: { (posts: [Post]) in
             for post in posts{
+                let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration)
                 print(post.name)
+                print("latitude: " + "\(post.latitude)")
+                print("longitude: " + "\(post.longitude)")
+                
+                self.mapView.addAnnotation(dogPost)
             }
         })
-        
         
         let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15)
         mapView.addAnnotation(dogPost)
