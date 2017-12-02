@@ -734,7 +734,7 @@ fileprivate class _CKDecoder : Decoder {
     }
     
     // MARK: - Decoder Methods
-
+    
     public func container<Key>(keyedBy type: Key.Type) throws -> KeyedDecodingContainer<Key> {
         guard !(self.storage.topContainer is NSNull) else {
             throw DecodingError.valueNotFound(KeyedDecodingContainer<Key>.self,
@@ -1559,6 +1559,8 @@ extension _CKDecoder {
                 return true
             } else if number === kCFBooleanFalse as NSNumber {
                 return false
+            } else {
+                return number.boolValue
             }
         }
         
@@ -1884,7 +1886,7 @@ fileprivate extension DecodingError {
         let description = "Expected to decode \(expectation) but found \(_typeDescription(of: reality)) instead."
         return .typeMismatch(expectation, Context(codingPath: path, debugDescription: description))
     }
-
+    
     /// Returns a description of the type of `value` appropriate for an error message.
     ///
     /// - parameter value: The value whose type to describe.
@@ -2383,7 +2385,7 @@ extension _CKEncoder {
         // The value should request a container from the _PlistEncoder.
         let depth = self.storage.count
         try value.encode(to: self)
-
+        
         // The top container should be a new container.
         guard self.storage.count > depth else {
             return nil
