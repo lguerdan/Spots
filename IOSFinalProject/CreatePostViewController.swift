@@ -15,8 +15,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     var longitude: Double? = nil
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var dogName: UITextField!
+    @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var durationTextField: UITextField!
     
     //Duration picker
@@ -108,30 +108,48 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func submitDogPost(_ sender: Any) {
-        
         if self.latitude == nil || self.longitude == nil{
             print("nil 1")
             return
         }
-        if dogDesc.text == nil || dogName.text == nil || dogName.text == nil || durationTextField.text == nil{
+        if dogDesc == nil || dogName == nil || durationTextField == nil{
             print("nil 2")
             return
         }
         
-    
         let name = dogName.text!
         let description = dogDesc.text!
         let latitude = self.latitude!
         let longitude =  self.longitude!
         let durationText = durationTextField.text!
-        let durationInt = Int(durationText.components(separatedBy: " ")[0])!
+        print(durationText.components(separatedBy: " ")[1])
+        let durationInt = Int(durationText.components(separatedBy: " ")[1])!
         let currDate = Date()
         let post = Post(name: name, photo: imageView.image, description: description,
                         startTime: currDate,  duration: durationInt, latitude: latitude,
                         longitude: longitude, isOwner: false, numFlags: 0)
         print(post)
-        
+        var zone = Zone.defaultPublicDatabase()
+    
+        // Perform Save
+        zone.save(post, completionHandler: { (error) in
+            
+            // Retrieve records
+            zone.retrieveObjects(completionHandler: { (posts: [Post]) in
+                print(posts)
+                
+            })
+        })
+//
+//            // Retrieve User Information
+//            zone?.userInformation(completionHandler: { (user, error) in
+//                guard error == nil else { return }
+//
+//                print("User: \(user?.firstName ?? "")")
+//            })
+    
     }
+
     
     @IBAction func cancelDogPost(_ sender: Any) {
         

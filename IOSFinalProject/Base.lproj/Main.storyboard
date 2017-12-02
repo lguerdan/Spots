@@ -114,6 +114,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="186.5" height="85"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Post"/>
+                                                <connections>
+                                                    <action selector="submitDogPost:" destination="4Hg-dB-jbb" eventType="touchUpInside" id="Gzr-Iv-O6y"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtR-se-B2M">
                                                 <rect key="frame" x="188.5" y="0.0" width="186.5" height="85"/>
@@ -142,6 +145,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
                     <connections>
+                        <outlet property="dogDesc" destination="GKc-5m-afW" id="JrC-nN-rHq"/>
+                        <outlet property="dogName" destination="kcT-40-MmT" id="UL5-Rd-V8v"/>
                         <outlet property="durationTextField" destination="s1l-l4-zvd" id="hbZ-pU-lgn"/>
                         <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
                     </connections>
