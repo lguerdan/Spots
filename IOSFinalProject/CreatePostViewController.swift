@@ -67,6 +67,12 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //toolbar font
         UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Gujarati Sangam MN", size: 20), NSAttributedStringKey.foregroundColor: UIColor.black], for: UIControlState.normal)
      
+        //circular UIimage(kind of)
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.height/2
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
         
         
         //Dog description accessory
@@ -160,7 +166,19 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
 
     }
     
-    
+    func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
+        let imageView: UIImageView = UIImageView(image: image)
+        let layer = imageView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        layer.borderWidth = 2
+        layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return roundedImage!
+    }
     /*
     // MARK: - Navigation
 

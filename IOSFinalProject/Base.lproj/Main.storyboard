@@ -85,16 +85,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLZ-RM-b9z">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
+                                                <rect key="frame" x="62" y="15" width="250" height="250"/>
                                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="MjG-Ui-cEq" firstAttribute="top" secondItem="wLZ-RM-b9z" secondAttribute="top" id="4QA-Ta-xwM"/>
+                                            <constraint firstAttribute="trailing" secondItem="MjG-Ui-cEq" secondAttribute="trailing" constant="62.5" id="82X-PP-6fI"/>
                                             <constraint firstAttribute="bottom" secondItem="MjG-Ui-cEq" secondAttribute="bottom" id="FaF-9d-p8M"/>
+                                            <constraint firstItem="MjG-Ui-cEq" firstAttribute="leading" secondItem="wLZ-RM-b9z" secondAttribute="leading" constant="62.5" id="NQz-1b-1Qv"/>
+                                            <constraint firstItem="MjG-Ui-cEq" firstAttribute="top" secondItem="wLZ-RM-b9z" secondAttribute="top" constant="15" id="nm4-5q-o3i"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-ob-Vjz">
@@ -155,11 +157,12 @@
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" translatesAutoresizingMaskIntoConstraints="NO" id="GfB-4o-Sem">
                                         <rect key="frame" x="0.0" y="537" width="375" height="66"/>
                                         <items>
-                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="RAv-24-zAi"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="RAv-24-zAi"/>
                                             <barButtonItem title="Post" id="ygv-dK-2mS"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gN8-Pp-5TA"/>
+                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="h6c-a1-eo2"/>
                                             <barButtonItem title="Cancel" id="bBn-YK-HA5"/>
-                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Y2h-BX-i7N"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Y2h-BX-i7N"/>
                                         </items>
                                     </toolbar>
                                 </subviews>
@@ -190,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrD-iI-T5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="-348"/>
+            <point key="canvasLocation" x="1333.5999999999999" y="-348.57571214392806"/>
         </scene>
         <!--Profile-->
         <scene sceneID="lC7-so-qBO">
@@ -461,7 +464,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera" width="170" height="170"/>
         <image name="Filler" width="2553" height="3410"/>
     </resources>
 </document>
