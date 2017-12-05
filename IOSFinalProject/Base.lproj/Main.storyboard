@@ -159,7 +159,11 @@
                                         <rect key="frame" x="0.0" y="537" width="375" height="66"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="RAv-24-zAi"/>
-                                            <barButtonItem title="Post" id="ygv-dK-2mS"/>
+                                            <barButtonItem title="Post" id="ygv-dK-2mS">
+                                                <connections>
+                                                    <action selector="submitDogPost:" destination="4Hg-dB-jbb" id="WsU-gU-4vV"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gN8-Pp-5TA"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="h6c-a1-eo2"/>
                                             <barButtonItem title="Cancel" id="bBn-YK-HA5"/>

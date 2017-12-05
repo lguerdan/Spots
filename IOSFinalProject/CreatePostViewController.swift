@@ -134,8 +134,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func DurationButtonPress(_ sender: Any) {
         //Stuff
     }
-    
-    
+
     
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
@@ -146,41 +145,63 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             print("nil 2")
             return
         }
-        let name = self.dogName.text!
-        let description = self.dogDesc.text!
-        let image = self.imageView.image
-        let latitude = self.latitude!
-        let longitude =  self.longitude!
-        let durationText = self.durationTextField.text!
-        print(durationText.components(separatedBy: " ")[1])
-        let durationInt = Int(durationText.components(separatedBy: " ")[1])!
-        let currDate = Date()
+        print(durationTextField.text!)
         
-        // Retrieve User Information
-        let zone = Zone.defaultPublicDatabase()
-        zone.userInformation(completionHandler: { (user, error) in
-            guard error == nil else {
-                print("User error")
-                return
+        if self.dogName.text!.isEmpty || self.dogDesc.text!.isEmpty || self.durationTextField.text!.isEmpty {
+            let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
+            
+            if(self.dogName.text!.isEmpty){
+                alert.message = "Please provide a dog name."
             }
             
-            var userName : String
-            userName = user?.firstName ?? ""
-            userName += user?.lastName ?? ""
+            if(self.dogDesc.text!.isEmpty){
+                alert.message = "Please provide a description."
+            }
             
-            let post = Post(name: name, photo: image, description: description,
-                            startTime: currDate,  duration: durationInt, latitude: latitude,
-                            longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+            if(self.durationTextField.text!.isEmpty){
+                alert.message = "Please provide a post duration."
+            }
             
-            print(post)
-            // Perform Save
-            zone.save(post, completionHandler: { (error) in
-                if error != nil{
-                    print(error as Any)
-                }
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
 
+            let name = self.dogName.text!
+            let description = self.dogDesc.text!
+            let image = self.imageView.image
+            let latitude = self.latitude!
+            let longitude =  self.longitude!
+            let durationText = self.durationTextField.text!
+            print(durationText.components(separatedBy: " ")[1])
+            let durationInt = Int(durationText.components(separatedBy: " ")[1])!
+            let currDate = Date()
+            
+            // Retrieve User Information
+            let zone = Zone.defaultPublicDatabase()
+            zone.userInformation(completionHandler: { (user, error) in
+                guard error == nil else {
+                    print("User error")
+                    return
+                }
+                
+                var userName : String
+                userName = user?.firstName ?? ""
+                userName += user?.lastName ?? ""
+                
+                let post = Post(name: name, photo: image, description: description,
+                                startTime: currDate,  duration: durationInt, latitude: latitude, longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+                
+                print(post)
+                // Perform Save
+                zone.save(post, completionHandler: { (error) in
+                    if error != nil{
+                        print(error as Any)
+                    }
+                })
             })
-        })
+        }
     }
     
     @IBAction func cancelDogPost(_ sender: Any) {
