@@ -18,6 +18,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var dogName: UITextField!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var durationTextField: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var postButton: UIBarButtonItem!
     
     
     //Duration picker
@@ -48,6 +51,16 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         // change of font and font color of navigation controller
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
+        //back button color
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        //toolbar button colors
+        self.cancelButton.tintColor = UIColor.white
+        self.postButton.tintColor = UIColor.white
+        
+        //toolbar font
+        toolbar.barTintColor = UIColor(rgb: 0xE77C1E)
+        
         //Max character length
         dogName.delegate = self
         dogDesc.delegate = self
@@ -57,6 +70,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationPicker.dataSource = self
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(CreatePostViewController.resignKeyboard))
+        doneButton.tintColor = UIColor.black
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         toolBar.setItems([flexibleSpace, doneButton], animated: false)
@@ -67,9 +81,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationTextField.delegate = self
         durationTextField.tintColor = .clear
         //end of duration picker
-        
-        //toolbar font
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Gujarati Sangam MN", size: 20), NSAttributedStringKey.foregroundColor: UIColor.black], for: UIControlState.normal)
      
         //circular UIimage(kind of)
         imageView.layer.cornerRadius = imageView.frame.size.width/2
@@ -187,6 +198,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return roundedImage!
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        navigationItem.backBarButtonItem?.tintColor = UIColor.white
+        
     }
     /*
     // MARK: - Navigation

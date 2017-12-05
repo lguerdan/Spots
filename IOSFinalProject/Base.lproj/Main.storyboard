@@ -86,17 +86,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
-                                                <rect key="frame" x="62" y="15" width="250" height="250"/>
+                                                <rect key="frame" x="62" y="7" width="250" height="250"/>
                                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="MjG-Ui-cEq" secondAttribute="trailing" constant="62.5" id="82X-PP-6fI"/>
-                                            <constraint firstAttribute="bottom" secondItem="MjG-Ui-cEq" secondAttribute="bottom" id="FaF-9d-p8M"/>
+                                            <constraint firstAttribute="bottom" secondItem="MjG-Ui-cEq" secondAttribute="bottom" constant="8" id="FaF-9d-p8M"/>
                                             <constraint firstItem="MjG-Ui-cEq" firstAttribute="leading" secondItem="wLZ-RM-b9z" secondAttribute="leading" constant="62.5" id="NQz-1b-1Qv"/>
-                                            <constraint firstItem="MjG-Ui-cEq" firstAttribute="top" secondItem="wLZ-RM-b9z" secondAttribute="top" constant="15" id="nm4-5q-o3i"/>
+                                            <constraint firstItem="MjG-Ui-cEq" firstAttribute="top" secondItem="wLZ-RM-b9z" secondAttribute="top" constant="7" id="nm4-5q-o3i"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2H-ob-Vjz">
@@ -141,6 +141,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-l4-zvd">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="66.5"/>
+                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -185,10 +186,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create" id="SfF-c5-BOx"/>
                     <connections>
+                        <outlet property="cancelButton" destination="bBn-YK-HA5" id="7gc-Lz-tEt"/>
                         <outlet property="dogDesc" destination="GKc-5m-afW" id="JrC-nN-rHq"/>
                         <outlet property="dogName" destination="kcT-40-MmT" id="UL5-Rd-V8v"/>
                         <outlet property="durationTextField" destination="s1l-l4-zvd" id="hbZ-pU-lgn"/>
                         <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
+                        <outlet property="postButton" destination="ygv-dK-2mS" id="BAg-JF-RQK"/>
+                        <outlet property="toolbar" destination="GfB-4o-Sem" id="tR9-M7-8rq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrD-iI-T5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
