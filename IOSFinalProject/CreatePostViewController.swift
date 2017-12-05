@@ -21,6 +21,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var postButton: UIBarButtonItem!
+    @IBOutlet weak var textViewDesc: UITextView!
     
     
     //Duration picker
@@ -60,6 +61,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         //toolbar font
         toolbar.barTintColor = UIColor(rgb: 0xE77C1E)
+        
+        textViewDesc.delegate = self
+        textViewDesc.text = "Tell us about your dog!"
+        textViewDesc.textColor = UIColor.lightGray
+        
         
         //Max character length
         dogName.delegate = self
@@ -225,6 +231,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         navigationItem.backBarButtonItem?.tintColor = UIColor.white
         
     }
+    
     /*
     // MARK: - Navigation
 
@@ -255,10 +262,18 @@ extension CreatePostViewController: UITextFieldDelegate {
 extension CreatePostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         moveTextView(textView, moveDistance: -250, up: true)
+        if textViewDesc.textColor == UIColor.lightGray {
+            textViewDesc.text = nil
+            textViewDesc.textColor = UIColor.black
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         moveTextView(textView, moveDistance: -250, up: false)
+        if textViewDesc.text.isEmpty {
+            textViewDesc.text = "Tell us about your dog!"
+            textViewDesc.textColor = UIColor.lightGray
+        }
     }
     
     func moveTextView(_ textView: UITextView, moveDistance: Int, up: Bool) {
