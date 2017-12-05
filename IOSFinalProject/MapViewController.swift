@@ -12,7 +12,9 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var moveToCreatePost: UIButton!
+    
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var moveToCreatePost: UIBarButtonItem!
     @IBOutlet weak var moveToProfile: UIBarButtonItem!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -120,9 +122,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func setImageIcons() {
         //E77C1E
-        let size = moveToCreatePost.frame.size
-        let image  = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: size)
-        moveToCreatePost.setBackgroundImage(image, for: .normal)
+        let postButton: UIButton = UIButton(type: UIButtonType.custom)
+        postButton.frame.size = CGSize(width: 30, height: 30)
+        //set frame
+        let postSize = postButton.frame.size
+        let postImage = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: postSize)
+        postButton.setImage(postImage, for: .normal)
+        let bottomBarButton = UIBarButtonItem(customView: postButton)
+        //assign button to bottombar
+        self.bottomToolBar.setItems([bottomBarButton], animated: false)
+        //Need to add segue to the createpost
+
+        
         
         let profileButton: UIButton = UIButton(type: UIButtonType.custom)
         profileButton.frame.size = CGSize(width: 30, height: 30)
