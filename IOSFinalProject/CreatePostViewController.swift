@@ -18,6 +18,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var dogName: UITextField!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var durationTextField: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var postButton: UIBarButtonItem!
+    @IBOutlet weak var textViewDesc: UITextView!
     
     
     //Duration picker
@@ -48,6 +52,21 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         // change of font and font color of navigation controller
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
+        //back button color
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        //toolbar button colors
+        self.cancelButton.tintColor = UIColor.white
+        self.postButton.tintColor = UIColor.white
+        
+        //toolbar font
+        toolbar.barTintColor = UIColor(rgb: 0xE77C1E)
+        
+        textViewDesc.delegate = self
+        textViewDesc.text = "Tell us about your dog!"
+        textViewDesc.textColor = UIColor.lightGray
+        
+        
         //Max character length
         dogName.delegate = self
         dogDesc.delegate = self
@@ -57,6 +76,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationPicker.dataSource = self
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(CreatePostViewController.resignKeyboard))
+        doneButton.tintColor = UIColor.black
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         toolBar.setItems([flexibleSpace, doneButton], animated: false)
@@ -67,9 +87,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         durationTextField.delegate = self
         durationTextField.tintColor = .clear
         //end of duration picker
-        
-        //toolbar font
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "Gujarati Sangam MN", size: 20), NSAttributedStringKey.foregroundColor: UIColor.black], for: UIControlState.normal)
      
         //circular UIimage(kind of)
         imageView.layer.cornerRadius = imageView.frame.size.width/2
@@ -123,8 +140,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func DurationButtonPress(_ sender: Any) {
         //Stuff
     }
-    
-    
+
     
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
@@ -135,41 +151,63 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             print("nil 2")
             return
         }
-        let name = self.dogName.text!
-        let description = self.dogDesc.text!
-        let image = self.imageView.image
-        let latitude = self.latitude!
-        let longitude =  self.longitude!
-        let durationText = self.durationTextField.text!
-        print(durationText.components(separatedBy: " ")[1])
-        let durationInt = Int(durationText.components(separatedBy: " ")[1])!
-        let currDate = Date()
+        print(durationTextField.text!)
         
-        // Retrieve User Information
-        let zone = Zone.defaultPublicDatabase()
-        zone.userInformation(completionHandler: { (user, error) in
-            guard error == nil else {
-                print("User error")
-                return
+        if self.dogName.text!.isEmpty || self.dogDesc.text!.isEmpty || self.durationTextField.text!.isEmpty {
+            let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
+            
+            if(self.dogName.text!.isEmpty){
+                alert.message = "Please provide a dog name."
             }
             
-            var userName : String
-            userName = user?.firstName ?? ""
-            userName += user?.lastName ?? ""
+            if(self.dogDesc.text!.isEmpty){
+                alert.message = "Please provide a description."
+            }
             
-            let post = Post(name: name, photo: image, description: description,
-                            startTime: currDate,  duration: durationInt, latitude: latitude,
-                            longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+            if(self.durationTextField.text!.isEmpty){
+                alert.message = "Please provide a post duration."
+            }
             
-            print(post)
-            // Perform Save
-            zone.save(post, completionHandler: { (error) in
-                if error != nil{
-                    print(error as Any)
-                }
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
 
+            let name = self.dogName.text!
+            let description = self.dogDesc.text!
+            let image = self.imageView.image
+            let latitude = self.latitude!
+            let longitude =  self.longitude!
+            let durationText = self.durationTextField.text!
+            print(durationText.components(separatedBy: " ")[1])
+            let durationInt = Int(durationText.components(separatedBy: " ")[1])!
+            let currDate = Date()
+            
+            // Retrieve User Information
+            let zone = Zone.defaultPublicDatabase()
+            zone.userInformation(completionHandler: { (user, error) in
+                guard error == nil else {
+                    print("User error")
+                    return
+                }
+                
+                var userName : String
+                userName = user?.firstName ?? ""
+                userName += user?.lastName ?? ""
+                
+                let post = Post(name: name, photo: image, description: description,
+                                startTime: currDate,  duration: durationInt, latitude: latitude, longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+                
+                print(post)
+                // Perform Save
+                zone.save(post, completionHandler: { (error) in
+                    if error != nil{
+                        print(error as Any)
+                    }
+                })
             })
-        })
+        }
     }
     
     @IBAction func cancelDogPost(_ sender: Any) {
@@ -188,6 +226,12 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         UIGraphicsEndImageContext()
         return roundedImage!
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        navigationItem.backBarButtonItem?.tintColor = UIColor.white
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -218,10 +262,18 @@ extension CreatePostViewController: UITextFieldDelegate {
 extension CreatePostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         moveTextView(textView, moveDistance: -250, up: true)
+        if textViewDesc.textColor == UIColor.lightGray {
+            textViewDesc.text = nil
+            textViewDesc.textColor = UIColor.black
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         moveTextView(textView, moveDistance: -250, up: false)
+        if textViewDesc.text.isEmpty {
+            textViewDesc.text = "Tell us about your dog!"
+            textViewDesc.textColor = UIColor.lightGray
+        }
     }
     
     func moveTextView(_ textView: UITextView, moveDistance: Int, up: Bool) {

@@ -140,6 +140,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             CreatePostViewController.latitude = currLocation.latitude
             CreatePostViewController.longitude = currLocation.longitude
         }
+        
+        if segue.identifier == "ShowDogPost" {
+            if segue.destination is DogPostViewController {
+//                DogPostViewController.dogName = post.name
+            }
+        }
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -260,6 +266,7 @@ extension MapViewController: MKMapViewDelegate {
             performSegue(withIdentifier: "ShowDogPost", sender: self)
         }
     }
+
 }
 
 extension UIColor {
