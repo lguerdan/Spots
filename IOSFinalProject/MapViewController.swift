@@ -60,6 +60,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             //This is an example of owner sorting
             //let collectedPosts: [Post] = self.getOwnersPosts("GrantMaloney", self.posts)
             
+            //This is an example of duration sorting, will return posts = to or < duration specified
+            //let collectedPosts: [Post] = self.populateByDuration(5, self.posts)
+            
             for post in self.posts {
                 let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!, name: post.posterName)
                 print(post.name)
@@ -106,6 +109,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         for post in posts {
             if name == post.posterName {
+                populatedPosts.append(post)
+            }
+        }
+        
+        return populatedPosts
+    }
+    
+    func populateByDuration(_ duration: Int, _ posts: [Post]) -> [Post] {
+        var populatedPosts: [Post] = []
+        
+        for post in posts {
+            if post.duration <= duration {
                 populatedPosts.append(post)
             }
         }
