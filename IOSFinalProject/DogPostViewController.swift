@@ -82,6 +82,7 @@ class DogPostViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
             (alertAction) -> Void in
+            self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
         
