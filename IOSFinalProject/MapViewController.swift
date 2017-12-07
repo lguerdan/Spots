@@ -132,13 +132,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //assign button to bottombar
         self.bottomToolBar.setItems([bottomBarButton], animated: false)
         //Need to add segue to the createpost
-
+        postButton.addTarget(self, action: #selector(segueToPostView), for: .touchUpInside)
         
         
         let profileButton: UIButton = UIButton(type: UIButtonType.custom)
         profileButton.frame.size = CGSize(width: 30, height: 30)
         //add function for button
-        //button.addTarget(self, action: Selector("goToProfile"), for: UIControlEvents.touchUpInside)
+        profileButton.addTarget(self, action: #selector(segueToProfile), for: UIControlEvents.touchUpInside)
         //set frame
         let profileSize = profileButton.frame.size
         let profileImage = UIImage(named: "Profile")?.resizedImageWithinSquare(rectSize: profileSize)
@@ -149,7 +149,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.rightBarButtonItem = barButton
         
     }
+    
+    @objc func segueToPostView() {
+        performSegue(withIdentifier: "ShowCreatePost", sender: nil)
+    }
 
+    @objc func segueToProfile() {
+        performSegue(withIdentifier: "ShowProfile", sender: nil)
+    }
 
     /*
     // MARK: - Navigation

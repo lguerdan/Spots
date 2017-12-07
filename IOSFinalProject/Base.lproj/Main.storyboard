@@ -30,7 +30,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="63e-AJ-TQV">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EJE-Gf-XiZ"/>
+                                </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,7 +48,6 @@
                     <navigationItem key="navigationItem" title="Spots" id="ohJ-n7-6GW">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dER-Ow-dwq"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="94s-S6-1KT">
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="u63-L3-RcY" kind="show" id="PUj-Bo-aEa"/>
                             </connections>
@@ -56,7 +57,8 @@
                         <outlet property="bottomToolBar" destination="63e-AJ-TQV" id="Nlj-sq-fu3"/>
                         <outlet property="mapView" destination="jdb-hK-Vlr" id="Yxo-NW-iOl"/>
                         <segue destination="mhT-9g-eiE" kind="show" identifier="ShowDogPost" id="y9j-jT-vX0"/>
-                        <segue destination="4Hg-dB-jbb" kind="show" identifier="showCreatePost" id="IEX-zA-R5R"/>
+                        <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="IEX-zA-R5R"/>
+                        <segue destination="u63-L3-RcY" kind="show" identifier="ShowProfile" id="NHH-Ja-1x1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -468,4 +470,7 @@
     <resources>
         <image name="Filler" width="2553" height="3410"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NHH-Ja-1x1"/>
+    </inferredMetricsTieBreakers>
 </document>
