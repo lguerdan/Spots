@@ -65,7 +65,7 @@ class DogPostViewController: UIViewController {
         let flagBarButton = UIBarButtonItem(customView: flagButton)
         //assign button to bottombar
         //Need to add segue to the createpost
-        flagButton.addTarget(self, action: #selector(segueToPostView), for: .touchUpInside)
+        flagButton.addTarget(self, action: #selector(flagPost), for: .touchUpInside)
         
         let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         self.bottomBar.setItems([spacing, postBarButton, spacing, flagBarButton], animated: false)
@@ -76,6 +76,15 @@ class DogPostViewController: UIViewController {
     }
     
     @objc func flagPost() {
+        let alert = UIAlertController(title: "Is this post inappropriate?", message: "Would you like to flag this post?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+            (alertAction) -> Void in
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+            (alertAction) -> Void in
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
         
     }
 }
