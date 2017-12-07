@@ -8,6 +8,14 @@
 
 import MapKit
 
+//class PostAnnotationView :  MKAnnotationView {
+//    var dogPost : Post
+//    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+//        <#code#>
+//    }
+//}
+
+
 class DogAnnotationView: MKAnnotationView{
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

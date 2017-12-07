@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DogPostViewController: UIViewController {
 
@@ -16,6 +17,9 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
+    
+    let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
+    
     
     let zone = Zone.defaultPublicDatabase()
     override func viewDidLoad() {
@@ -27,6 +31,8 @@ class DogPostViewController: UIViewController {
                 print(post.name)
             }
         })
+        dogName.text = dogPost.title
+        
         
         // Do any additional setup after loading the view.
         setImageIcons()

@@ -24,6 +24,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return manager
     }()
     
+    var selectedAnnotation : DogPost?
+    
     var posts: [Post] = []
     
     var currLocation : CLLocationCoordinate2D = CLLocationCoordinate2D()
@@ -62,19 +64,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             //This is an example of owner sorting
             //let collectedPosts: [Post] = self.getOwnersPosts("GrantMaloney", self.posts)
             
+            //This is an example of duration sorting, will return posts = to or < duration specified
+            //let collectedPosts: [Post] = self.populateByDuration(5, self.posts)
+            
             for post in self.posts {
                 let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!, name: post.posterName)
                 print(post.name)
-                print("latitude: " + "\(post.latitude)")
-                print("longitude: " + "\(post.longitude)")
                 
                 self.mapView.addAnnotation(dogPost)
             }
         })
-        
-        
-        let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
-        mapView.addAnnotation(dogPost)
         
         setImageIcons()
     }
@@ -108,6 +107,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         for post in posts {
             if name == post.posterName {
+                populatedPosts.append(post)
+            }
+        }
+        
+        return populatedPosts
+    }
+    
+    func populateByDuration(_ duration: Int, _ posts: [Post]) -> [Post] {
+        var populatedPosts: [Post] = []
+        
+        for post in posts {
+            if post.duration <= duration {
                 populatedPosts.append(post)
             }
         }
@@ -222,26 +233,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    // gets called for every annotation added to the map to return the view for each annotation
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // in case the map uses other annotations, check if the annotation is of type DogPost...
-        // need to change this to use our structure
+        
+        
         guard let annotation = annotation as? DogPost else { return nil }
-        // To make markers appear, create each view as an MKMarkerAnnotationView
+        
         let identifier = "marker"
         var view: MKAnnotationView
-        // a map view reuses annotation views that are no longer visible. check to see if a reusable annotation view is available before creating a new one.
+        
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            //  create a new MKMarkerAnnotationView object, if an annotation view could not be dequeued. It uses the title and subtitle properties of your Artwork class to determine what to show in the callout.
+            
             view = DogAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             let rightButton: AnyObject! = UIButton(type: UIButtonType.detailDisclosure)
             view.rightCalloutAccessoryView = rightButton as? UIView
-//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+
         }
         view.image = annotation.photo.resizedImageWithinSquare(rectSize: CGSize(width: 56, height: 56))
         let zone = Zone.defaultPublicDatabase()
@@ -283,7 +294,13 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if control == view.rightCalloutAccessoryView {
+//            print(view.annotation?.title)
+//            view.annotation?.description
+//            view.annotation?.duration
+            selectedAnnotation = view.annotation as? DogPost
+            
             performSegue(withIdentifier: "ShowDogPost", sender: self)
+            
         }
     }
 
