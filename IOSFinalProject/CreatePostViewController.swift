@@ -219,6 +219,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func cancelDogPost(_ sender: Any) {
+        self.navigationController?.popViewController(animated: false)
     }
     
     func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
