@@ -52,15 +52,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             for post in posts{
                 let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!)
                 print(post.name)
-                print("latitude: " + "\(post.latitude)")
-                print("longitude: " + "\(post.longitude)")
                 
                 self.mapView.addAnnotation(dogPost)
             }
         })
-        
-        let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!)
-        mapView.addAnnotation(dogPost)
         
         setImageIcons()
     }
@@ -201,7 +196,11 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if control == view.rightCalloutAccessoryView {
+//            print(view.annotation?.title)
+//            view.annotation?.description
+//            view.annotation?.duration
             performSegue(withIdentifier: "ShowDogPost", sender: self)
+            
         }
     }
 
