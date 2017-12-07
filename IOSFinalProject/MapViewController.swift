@@ -37,6 +37,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let zoneCheck = Zone.defaultPublicDatabase()
+        zoneCheck.userInformation(completionHandler: { (user, error) in
+            if error != nil {
+                let alert = UIAlertController(title: "Error Viewing Spots", message: "This is an alert.", preferredStyle: .alert)
+                alert.message = "You must be signed in to iCloud to view Spots. Please sign in through app settings and try again."
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+        })
         
         // setting the initial location to Columbia, MO for testing purposes?
         // want to eventually set the initial location to a radius around the user...
@@ -255,6 +267,8 @@ extension MapViewController: MKMapViewDelegate {
 
         }
         view.image = annotation.photo.resizedImageWithinSquare(rectSize: CGSize(width: 56, height: 56))
+        let newImage = UIImage(cgImage: (view.image?.cgImage!)!, scale: (view.image?.scale)!, orientation: UIImageOrientation.right)
+        view.image = newImage
         let zone = Zone.defaultPublicDatabase()
         zone.userInformation(completionHandler: { (user, error) in
             DispatchQueue.main.async {
