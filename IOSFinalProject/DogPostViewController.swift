@@ -22,6 +22,8 @@ class DogPostViewController: UIViewController {
     
     
     let zone = Zone.defaultPublicDatabase()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // retrieving records
@@ -36,6 +38,8 @@ class DogPostViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setImageIcons()
+        //back button color
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
