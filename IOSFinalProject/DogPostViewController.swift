@@ -58,6 +58,16 @@ class DogPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func initDogPostUI(){
+        if let dogPost = dogPost {
+            dogImage.image = dogPost.photo
+            dogName.text = dogPost.title
+            dogDesc.text = dogPost.desc
+            print(dogPost.description)
+            ownerName.text = dogPost.posterName.camelCaseToWords()
+        }
+    }
+    
     func setImageIcons() {
         //E77C1E
         let postButton: UIButton = UIButton(type: UIButtonType.custom)
@@ -87,7 +97,7 @@ class DogPostViewController: UIViewController {
     }
 
     @objc func segueToPostView() {
-        self.navigationController?.popViewController(animated: false)
+        //self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
     
@@ -104,4 +114,22 @@ class DogPostViewController: UIViewController {
 
     }
     
+}
+
+extension String {
+    
+    func camelCaseToWords() -> String {
+        
+        return unicodeScalars.reduce("") {
+            
+            if CharacterSet.uppercaseLetters.contains($1) == true {
+                
+                return ($0 + " " + String($1))
+            }
+            else {
+                
+                return $0 + String($1)
+            }
+        }
+    }
 }

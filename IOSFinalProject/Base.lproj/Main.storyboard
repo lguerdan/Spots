@@ -75,7 +75,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLZ-RM-b9z">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="267.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
                                                 <rect key="frame" x="62" y="7" width="250" height="252.5"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -157,7 +157,11 @@
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gN8-Pp-5TA"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="h6c-a1-eo2"/>
-                                            <barButtonItem title="Cancel" id="bBn-YK-HA5"/>
+                                            <barButtonItem title="Cancel" id="bBn-YK-HA5">
+                                                <connections>
+                                                    <action selector="cancelDogPost:" destination="4Hg-dB-jbb" id="jnb-Ms-PTM"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Y2h-BX-i7N"/>
                                         </items>
                                     </toolbar>
@@ -198,7 +202,7 @@
         <!--Profile-->
         <scene sceneID="lC7-so-qBO">
             <objects>
-                <viewController id="u63-L3-RcY" sceneMemberID="viewController">
+                <viewController id="u63-L3-RcY" customClass="ProfileViewController" customModule="IOSFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZbD-Sd-oLC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,10 +211,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Aa-3r-I7L">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="186.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="186.5"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,10 +226,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpW-a9-j8s">
-                                        <rect key="frame" x="0.0" y="224.5" width="375" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="202.5" width="375" height="62.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-0d-yYV">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="69.5"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="62.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
@@ -241,10 +245,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-O2-zaM">
-                                        <rect key="frame" x="0.0" y="310" width="375" height="69"/>
+                                        <rect key="frame" x="0.0" y="281" width="375" height="62"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-MG-uCD">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="69"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="62"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
@@ -260,7 +264,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-rY-h4o">
-                                        <rect key="frame" x="0.0" y="395" width="375" height="208"/>
+                                        <rect key="frame" x="0.0" y="359" width="375" height="186.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="MCP-nG-CsI" detailTextLabel="Qd6-mg-xmK" imageView="v19-5V-6HI" style="IBUITableViewCellStyleSubtitle" id="Oyd-7f-Q8n">
@@ -293,9 +297,14 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlB-Tt-FsW">
+                                        <rect key="frame" x="0.0" y="561.5" width="375" height="41.5"/>
+                                        <items/>
+                                    </toolbar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="SpW-a9-j8s" secondAttribute="height" multiplier="3:1" id="6ex-2f-Mlv"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="AlB-Tt-FsW" secondAttribute="height" multiplier="4.5:1" id="8zq-mj-ABS"/>
                                     <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="PL2-rY-h4o" secondAttribute="height" id="Qp1-xh-Hqk"/>
                                     <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="eFT-O2-zaM" secondAttribute="height" multiplier="3:1" id="nbw-iT-zD3"/>
                                 </constraints>
@@ -311,6 +320,10 @@
                         <viewLayoutGuide key="safeArea" id="TGF-JB-33r"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="uWF-8O-iLM"/>
+                    <connections>
+                        <outlet property="bottomToolBar" destination="AlB-Tt-FsW" id="8mc-6g-1hB"/>
+                        <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="Pfu-L4-8cH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1U-2x-CWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,10 +375,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-lp-pth">
-                                        <rect key="frame" x="0.0" y="293.5" width="375" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="290" width="375" height="52"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HM4-ff-zI6">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="52.5"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="52"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -380,10 +393,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZu-sN-yDN">
-                                        <rect key="frame" x="0.0" y="362" width="375" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="358" width="375" height="68.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O1-DY-BmZ">
-                                                <rect key="frame" x="140" y="5" width="95.5" height="59"/>
+                                                <rect key="frame" x="140" y="4.5" width="95.5" height="59"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -396,10 +409,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igq-DD-61F">
-                                        <rect key="frame" x="0.0" y="447.5" width="375" height="104.5"/>
+                                        <rect key="frame" x="0.0" y="442.5" width="375" height="103"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CpT-ZH-OUJ">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="104.5"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="103"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -413,14 +426,14 @@
                                         </constraints>
                                     </view>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koI-iC-jO1">
-                                        <rect key="frame" x="0.0" y="568" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="561.5" width="375" height="41.5"/>
                                         <items/>
                                     </toolbar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="dMH-sg-pGd" secondAttribute="height" multiplier="4:1" id="5Q5-2g-kqO"/>
                                     <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="XLn-lp-pth" secondAttribute="height" multiplier="4:1" id="8nK-HL-1SH"/>
-                                    <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="koI-iC-jO1" secondAttribute="height" multiplier="6:1" id="J4h-Tt-yef"/>
+                                    <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="koI-iC-jO1" secondAttribute="height" multiplier="5:1" id="J4h-Tt-yef"/>
                                     <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="TZu-sN-yDN" secondAttribute="height" multiplier="3:1" id="MIc-Qa-oxU"/>
                                     <constraint firstItem="55a-Qq-9av" firstAttribute="height" secondItem="igq-DD-61F" secondAttribute="height" multiplier="2:1" id="P8p-9n-Nfw"/>
                                 </constraints>
@@ -445,7 +458,7 @@
                         <outlet property="duration" destination="4O1-DY-BmZ" id="UsQ-oV-IYG"/>
                         <outlet property="imageView" destination="Iby-Jm-5YK" id="nke-Lf-J6A"/>
                         <outlet property="ownerName" destination="HM4-ff-zI6" id="fek-V2-gI1"/>
-                        <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="KuD-Ul-PXb"/>
+                        <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="Sni-3v-Vwl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL0-gj-rag" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,6 +493,6 @@
         <image name="Filler" width="404" height="332"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KuD-Ul-PXb"/>
+        <segue reference="Pfu-L4-8cH"/>
     </inferredMetricsTieBreakers>
 </document>
