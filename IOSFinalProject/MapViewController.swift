@@ -25,9 +25,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }()
     
     var selectedAnnotation : DogPost?
-    
     var posts: [Post] = []
-    
     var currLocation : CLLocationCoordinate2D = CLLocationCoordinate2D()
     var regionRadius: CLLocationDistance = 1000
     
@@ -155,8 +153,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         if segue.identifier == "ShowDogPost" {
-            if segue.destination is DogPostViewController {
-//                DogPostViewController.dogName = post.name
+             if let DogPostViewController = segue.destination as? DogPostViewController {
+                DogPostViewController.dogPost = selectedAnnotation
             }
         }
     }
@@ -217,17 +215,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @objc func segueToProfile() {
         performSegue(withIdentifier: "ShowProfile", sender: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -292,13 +279,9 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if control == view.rightCalloutAccessoryView {
-//            print(view.annotation?.title)
-//            view.annotation?.description
-//            view.annotation?.duration
+
             selectedAnnotation = view.annotation as? DogPost
-            
             performSegue(withIdentifier: "ShowDogPost", sender: self)
-            
         }
     }
 

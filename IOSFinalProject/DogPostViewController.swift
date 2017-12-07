@@ -17,8 +17,7 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     
-    let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
-    
+    var dogPost: DogPost? = nil    
     
     let zone = Zone.defaultPublicDatabase()
     override func viewDidLoad() {
@@ -30,26 +29,23 @@ class DogPostViewController: UIViewController {
                 print(post.name)
             }
         })
-        dogName.text = dogPost.title
-        
-        
-        // Do any additional setup after loading the view.
+        initDogPostUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func initDogPostUI(){
+        if let dogPost = dogPost {
+            dogImage.image = dogPost.photo
+            dogName.text = dogPost.title
+            print(dogPost.duration)
+            print(dogPost.description)
+            print(dogPost.startTime)
+//            print(dogPost.posterName)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        }
     }
-    */
 
 }
