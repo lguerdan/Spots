@@ -323,7 +323,7 @@
         <!--Doggo Post-->
         <scene sceneID="g7w-vx-eFX">
             <objects>
-                <viewController id="mhT-9g-eiE" sceneMemberID="viewController">
+                <viewController id="mhT-9g-eiE" customClass="DogPostViewController" customModule="IOSFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3vH-wo-NDr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -438,6 +438,13 @@
                     <navigationItem key="navigationItem" title="Doggo Post" id="4Fm-zI-MJF">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="TmY-EW-Enp"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dogDesc" destination="CpT-ZH-OUJ" id="dvs-YK-hnJ"/>
+                        <outlet property="dogImage" destination="Iby-Jm-5YK" id="IJR-Qn-CKA"/>
+                        <outlet property="dogName" destination="qB6-Du-RpG" id="m9e-Kh-Z6j"/>
+                        <outlet property="duration" destination="4O1-DY-BmZ" id="UsQ-oV-IYG"/>
+                        <outlet property="ownerName" destination="HM4-ff-zI6" id="fek-V2-gI1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL0-gj-rag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

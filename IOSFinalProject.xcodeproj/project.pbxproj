@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17E42BD41FD72F2F00E840B1 /* DogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E42BD31FD72F2F00E840B1 /* DogPostViewController.swift */; };
 		386111721FD09624007F9EA0 /* CKCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386111711FD09624007F9EA0 /* CKCodable.swift */; };
 		55475D981FCDE781003B0045 /* post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55475D971FCDE781003B0045 /* post.swift */; };
 		55D1B0341FD0D25F00E514A3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1B0331FD0D25F00E514A3 /* CloudKit.framework */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1755BFB31FCFBA0A009BF0FF /* UniversityOfMissouri_Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UniversityOfMissouri_Location.gpx; sourceTree = "<group>"; };
+		17E42BD31FD72F2F00E840B1 /* DogPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPostViewController.swift; sourceTree = "<group>"; };
 		386111711FD09624007F9EA0 /* CKCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKCodable.swift; sourceTree = "<group>"; };
 		55475D971FCDE781003B0045 /* post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = post.swift; sourceTree = "<group>"; };
 		55D1B0331FD0D25F00E514A3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 				F4B6AA5D1FB4D4060058AC51 /* Main.storyboard */,
 				F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */,
 				F48E1E5E1FBE185300AF61E9 /* MapViewController.swift */,
+				17E42BD31FD72F2F00E840B1 /* DogPostViewController.swift */,
 				60FCE9C71FD33B2D0028795A /* DogAnnotationView.swift */,
 				1755BFB31FCFBA0A009BF0FF /* UniversityOfMissouri_Location.gpx */,
 				F4B6AA631FB4D4060058AC51 /* Assets.xcassets */,
@@ -180,6 +183,7 @@
 				60FCE9C81FD33B2D0028795A /* DogAnnotationView.swift in Sources */,
 				F4B6AA621FB4D4060058AC51 /* IOSFinalProject.xcdatamodeld in Sources */,
 				F48E1E611FBE209800AF61E9 /* CreatePostViewController.swift in Sources */,
+				17E42BD41FD72F2F00E840B1 /* DogPostViewController.swift in Sources */,
 				F48E1E5F1FBE185300AF61E9 /* MapViewController.swift in Sources */,
 				386111721FD09624007F9EA0 /* CKCodable.swift in Sources */,
 			);

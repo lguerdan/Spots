@@ -24,6 +24,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return manager
     }()
     
+    var posts: [Post] = []
+    
     var currLocation : CLLocationCoordinate2D = CLLocationCoordinate2D()
     var regionRadius: CLLocationDistance = 1000
     
@@ -51,8 +53,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Retrieve records
         let zone = Zone.defaultPublicDatabase()
         zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-            for post in posts{
-                let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!)
+            self.posts = posts
+            // Reload data
+
+            //So, the lat and long is insanely small. The example below knocks off 2 of the 5 posts
+            //let collectedPosts: [Post] = self.populateByRadius(0.005, self.posts)
+            
+            //This is an example of owner sorting
+            //let collectedPosts: [Post] = self.getOwnersPosts("GrantMaloney", self.posts)
+            
+            for post in self.posts {
+                let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!, name: post.posterName)
                 print(post.name)
                 print("latitude: " + "\(post.latitude)")
                 print("longitude: " + "\(post.longitude)")
@@ -61,7 +72,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         })
         
-        let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!)
+        
+        let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
         mapView.addAnnotation(dogPost)
         
         setImageIcons()
@@ -70,6 +82,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func populateByRadius(_ radius: Double, _ posts: [Post]) -> [Post] {
+        var populatedPosts: [Post] = []
+        
+        let rangeUpDownHigh = self.currLocation.latitude + radius
+        let rangeLeftRightHigh = self.currLocation.longitude + radius
+        
+        let rangeUpDownLow = self.currLocation.latitude - radius
+        let rangeLeftRightLow = self.currLocation.longitude - radius
+        
+        for post in posts {
+            if (post.latitude >= rangeUpDownLow && post.latitude <= rangeUpDownHigh)
+                && (post.longitude >= rangeLeftRightLow && post.longitude <= rangeLeftRightHigh) {
+                populatedPosts.append(post)
+            }
+        }
+        
+        return populatedPosts
+    }
+    
+    func getOwnersPosts(_ name: String, _ posts: [Post]) -> [Post] {
+        var populatedPosts: [Post] = []
+        
+        for post in posts {
+            if name == post.posterName {
+                populatedPosts.append(post)
+            }
+        }
+        
+        return populatedPosts
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -98,6 +141,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if let CreatePostViewController = segue.destination as? CreatePostViewController {
             CreatePostViewController.latitude = currLocation.latitude
             CreatePostViewController.longitude = currLocation.longitude
+        }
+        
+        if segue.identifier == "ShowDogPost" {
+            if segue.destination is DogPostViewController {
+//                DogPostViewController.dogName = post.name
+            }
         }
     }
     
@@ -193,17 +242,36 @@ extension MapViewController: MKMapViewDelegate {
 //            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         view.image = annotation.photo.resizedImageWithinSquare(rectSize: CGSize(width: 56, height: 56))
-        view.image = maskRoundedImage(image: view.image!, radius: 28)
+        let zone = Zone.defaultPublicDatabase()
+        zone.userInformation(completionHandler: { (user, error) in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("User error")
+                    return
+                }
+                
+                var userName : String
+                userName = user?.firstName ?? ""
+                userName += user?.lastName ?? ""
+                
+                if userName == annotation.name {
+                    view.image = self.maskRoundedImage(image: view.image!, radius: 28, color: UIColor(rgb: 0x4286f4).cgColor)
+                } else {
+                    view.image = self.maskRoundedImage(image: view.image!, radius: 28, color: UIColor(rgb: 0xE77C1E).cgColor)
+                }
+            }
+        })
+        sleep(1)
         return view
     }
     
-    func maskRoundedImage(image: UIImage, radius: CGFloat) -> UIImage {
+    func maskRoundedImage(image: UIImage, radius: CGFloat, color: CGColor) -> UIImage {
         let imageView: UIImageView = UIImageView(image: image)
         let layer = imageView.layer
         layer.masksToBounds = true
         layer.cornerRadius = radius
-        layer.borderWidth = 2
-        layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
+        layer.borderWidth = 3
+        layer.borderColor = color
         UIGraphicsBeginImageContext(imageView.bounds.size)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -216,6 +284,7 @@ extension MapViewController: MKMapViewDelegate {
             performSegue(withIdentifier: "ShowDogPost", sender: self)
         }
     }
+
 }
 
 extension UIColor {
