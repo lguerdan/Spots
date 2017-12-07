@@ -18,23 +18,13 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
-    
-    let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
-    
-    
-    let zone = Zone.defaultPublicDatabase()
-    
-    
+
+    var dogPost: DogPost? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // retrieving records
-        let zone = Zone.defaultPublicDatabase()
-        zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-            for post in posts{
-                print(post.name)
-            }
-        })
-        dogName.text = dogPost.title
+        initDogPostUI()
+        setImageIcons()
         
         // change of font and font color of navigation controller
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -97,7 +87,7 @@ class DogPostViewController: UIViewController {
     }
 
     @objc func segueToPostView() {
-        //self.navigationController?.popViewController(animated: false)
+        self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
     
