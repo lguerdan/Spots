@@ -16,6 +16,7 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var ownerName: UITextField!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
+    @IBOutlet weak var bottomBar: UIToolbar!
     
     var dogPost: DogPost? = nil    
     
@@ -48,4 +49,21 @@ class DogPostViewController: UIViewController {
         }
     }
 
+    @objc func segueToPostView() {
+        performSegue(withIdentifier: "ShowCreatePost", sender: nil)
+    }
+    
+    @objc func flagPost() {
+        let alert = UIAlertController(title: "Is this post inappropriate?", message: "Would you like to flag this post?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+            (alertAction) -> Void in
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+            (alertAction) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
 }
