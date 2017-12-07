@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-struct Post : CloudKitCodable{
+struct Post : CloudKitCodable,NSObject, MKAnnotation{
     let recordType = "Post"
     var cloudInformation: CloudKitInformation?
     var name : String
@@ -42,29 +42,8 @@ struct Post : CloudKitCodable{
         } else {
             self.photo = nil
         }
-    }
-}
-
-class DogPost: NSObject, MKAnnotation {
-    let title: String?
-    let desc: String
-    let coordinate: CLLocationCoordinate2D
-    let duration: Int
-    let photo: UIImage
-    let name: String
-    
-    init(title: String, desc: String, coordinate: CLLocationCoordinate2D, duration: Int, photo: UIImage, name: String) {
-        self.title = title
-        self.desc = desc
-        self.coordinate = coordinate
-        self.duration = duration
-        self.photo = photo
-        self.name = name
-        
-        super.init()
-    }
-    
-    var subtitle: String? {
-        return desc
+        var subtitle: String? {
+            return description
+        }
     }
 }

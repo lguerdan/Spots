@@ -18,8 +18,7 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
     
-    let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
-    
+    var dogPost: DogPost? = nil    
     
     let zone = Zone.defaultPublicDatabase()
     override func viewDidLoad() {
@@ -31,11 +30,9 @@ class DogPostViewController: UIViewController {
                 print(post.name)
             }
         })
-        dogName.text = dogPost.title
-        
-        
-        // Do any additional setup after loading the view.
+
         setImageIcons()
+        initDogPostUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +66,16 @@ class DogPostViewController: UIViewController {
         
         let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         self.bottomBar.setItems([spacing, postBarButton, spacing, flagBarButton], animated: false)
+    func initDogPostUI(){
+        if let dogPost = dogPost {
+            dogImage.image = dogPost.photo
+            dogName.text = dogPost.title
+            print(dogPost.duration)
+            print(dogPost.description)
+            print(dogPost.startTime)
+//            print(dogPost.posterName)
+
+        }
     }
 
     @objc func segueToPostView() {
@@ -76,6 +83,15 @@ class DogPostViewController: UIViewController {
     }
     
     @objc func flagPost() {
-        
+
+        let alert = UIAlertController(title: "Is this post inappropriate?", message: "Would you like to flag this post?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+            (alertAction) -> Void in
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+            (alertAction) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)      
     }
 }
