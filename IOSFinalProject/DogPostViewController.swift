@@ -17,6 +17,7 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
+    @IBOutlet weak var imageView: UIImageView!
     
     let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
     
@@ -35,9 +36,19 @@ class DogPostViewController: UIViewController {
         })
         dogName.text = dogPost.title
         
+        // change of font and font color of navigation controller
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //circular UIimage(kind of)
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.height/2
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
         
         // Do any additional setup after loading the view.
         setImageIcons()
+        
         //back button color
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
