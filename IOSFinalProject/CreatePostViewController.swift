@@ -145,7 +145,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
             let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
-            alert.message = "Please provide a description."
+            alert.message = "You have not allowed us to collect your location. Please enable this and try again."
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
                 NSLog("The \"OK\" alert occured.")
             }))
@@ -190,25 +190,30 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             // Retrieve User Information
             let zone = Zone.defaultPublicDatabase()
             zone.userInformation(completionHandler: { (user, error) in
-                guard error == nil else {
-                    print("User error")
+                if error != nil {
+                    let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
+                    alert.message = "You must be signed in to iCloud to create a post. Please sign in through app settings and try again."
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
-                
-                var userName : String
-                userName = user?.firstName ?? ""
-                userName += user?.lastName ?? ""
-                
-                let post = Post(name: name, photo: image, description: description,
-                                startTime: currDate,  duration: durationInt, latitude: latitude, longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
-                
-                print(post)
-                // Perform Save
-                zone.save(post, completionHandler: { (error) in
-                    if error != nil{
-                        print(error as Any)
-                    }
-                })
+                else{
+                    var userName : String
+                    userName = user?.firstName ?? ""
+                    userName += user?.lastName ?? ""
+                    
+                    let post = Post(name: name, photo: image, description: description,
+                                    startTime: currDate,  duration: durationInt, latitude: latitude, longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
+                    
+                    // Perform Save
+                    zone.save(post, completionHandler: { (error) in
+                        if error != nil{
+                            print(error as Any)
+                        }
+                    })
+                }
             })
         }
     }
