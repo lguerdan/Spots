@@ -137,10 +137,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdN-vG-Dvc">
-                                        <rect key="frame" x="0.0" y="454.5" width="375" height="66.5"/>
+                                        <rect key="frame" x="0.0" y="454.5" width="375" height="66"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-l4-zvd">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="66.5"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="66"/>
                                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
@@ -156,10 +156,14 @@
                                         </constraints>
                                     </view>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" translatesAutoresizingMaskIntoConstraints="NO" id="GfB-4o-Sem">
-                                        <rect key="frame" x="0.0" y="537" width="375" height="66"/>
+                                        <rect key="frame" x="0.0" y="536.5" width="375" height="66.5"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="RAv-24-zAi"/>
-                                            <barButtonItem title="Post" id="ygv-dK-2mS"/>
+                                            <barButtonItem title="Post" id="ygv-dK-2mS">
+                                                <connections>
+                                                    <action selector="submitDogPost:" destination="4Hg-dB-jbb" id="WsU-gU-4vV"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gN8-Pp-5TA"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="h6c-a1-eo2"/>
                                             <barButtonItem title="Cancel" id="bBn-YK-HA5"/>
@@ -171,7 +175,7 @@
                                     <constraint firstItem="wLZ-RM-b9z" firstAttribute="height" secondItem="ZdN-vG-Dvc" secondAttribute="height" multiplier="4:1" id="8YE-ak-vjb"/>
                                     <constraint firstItem="wLZ-RM-b9z" firstAttribute="height" secondItem="dnN-KH-Qfj" secondAttribute="height" multiplier="3:1" id="MdT-Sv-4ec"/>
                                     <constraint firstItem="wLZ-RM-b9z" firstAttribute="height" secondItem="u2H-ob-Vjz" secondAttribute="height" multiplier="5:1" id="NNE-5M-Rhe"/>
-                                    <constraint firstItem="wLZ-RM-b9z" firstAttribute="height" secondItem="GfB-4o-Sem" secondAttribute="height" multiplier="4:1" id="RBQ-3i-vqh"/>
+                                    <constraint firstItem="wLZ-RM-b9z" firstAttribute="height" secondItem="GfB-4o-Sem" secondAttribute="height" multiplier="4:1" constant="-1" id="RBQ-3i-vqh"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -192,6 +196,7 @@
                         <outlet property="durationTextField" destination="s1l-l4-zvd" id="hbZ-pU-lgn"/>
                         <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
                         <outlet property="postButton" destination="ygv-dK-2mS" id="BAg-JF-RQK"/>
+                        <outlet property="textViewDesc" destination="GKc-5m-afW" id="ekk-W1-yon"/>
                         <outlet property="toolbar" destination="GfB-4o-Sem" id="tR9-M7-8rq"/>
                     </connections>
                 </viewController>
