@@ -72,12 +72,23 @@ class DogPostViewController: UIViewController {
     }
 
     @objc func segueToPostView() {
+        self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
     
     @objc func flagPost() {
-        
+        let alert = UIAlertController(title: "Is this post inappropriate?", message: "Would you like to flag this post?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+                (alertAction) -> Void in
+            }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+                (alertAction) -> Void in
+                self.navigationController?.popViewController(animated: true)
+            }))
+        self.present(alert, animated: true, completion: nil)
+
     }
+    
 }
 
 extension String {
