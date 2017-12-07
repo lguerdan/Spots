@@ -197,6 +197,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //assign button to navigationbar
         self.navigationItem.rightBarButtonItem = barButton
         
+        //performSegue(withIdentifier: "ShowDogPost", sender: nil)
+        
     }
     
     @objc func segueToPostView() {
