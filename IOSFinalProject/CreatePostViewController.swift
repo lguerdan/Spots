@@ -144,14 +144,17 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func submitDogPost(_ sender: Any) {
         if self.latitude == nil || self.longitude == nil{
-            print("nil 1")
+            let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
+            alert.message = "Please provide a description."
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         if dogDesc == nil || dogName == nil || durationTextField == nil{
-            print("nil 2")
             return
         }
-        print(durationTextField.text!)
         
         if self.dogName.text!.isEmpty || self.dogDesc.text!.isEmpty || self.durationTextField.text!.isEmpty {
             let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
