@@ -12,7 +12,9 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBOutlet weak var moveToCreatePost: UIButton!
+    
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var moveToCreatePost: UIBarButtonItem!
     @IBOutlet weak var moveToProfile: UIBarButtonItem!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -62,6 +64,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             //This is an example of owner sorting
             //let collectedPosts: [Post] = self.getOwnersPosts("GrantMaloney", self.posts)
             
+            //This is an example of duration sorting, will return posts = to or < duration specified
+            //let collectedPosts: [Post] = self.populateByDuration(5, self.posts)
+            
             for post in self.posts {
                 let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!, name: post.posterName)
                 print(post.name)
@@ -102,6 +107,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         for post in posts {
             if name == post.posterName {
+                populatedPosts.append(post)
+            }
+        }
+        
+        return populatedPosts
+    }
+    
+    func populateByDuration(_ duration: Int, _ posts: [Post]) -> [Post] {
+        var populatedPosts: [Post] = []
+        
+        for post in posts {
+            if post.duration <= duration {
                 populatedPosts.append(post)
             }
         }
@@ -165,14 +182,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func setImageIcons() {
         //E77C1E
-        let size = moveToCreatePost.frame.size
-        let image  = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: size)
-        moveToCreatePost.setBackgroundImage(image, for: .normal)
+        let postButton: UIButton = UIButton(type: UIButtonType.custom)
+        postButton.frame.size = CGSize(width: 30, height: 30)
+        //set frame
+        let postSize = postButton.frame.size
+        let postImage = UIImage(named: "Plus")?.resizedImageWithinSquare(rectSize: postSize)
+        postButton.setImage(postImage, for: .normal)
+        let bottomBarButton = UIBarButtonItem(customView: postButton)
+        //assign button to bottombar
+        self.bottomToolBar.setItems([bottomBarButton], animated: false)
+        //Need to add segue to the createpost
+        postButton.addTarget(self, action: #selector(segueToPostView), for: .touchUpInside)
+        
         
         let profileButton: UIButton = UIButton(type: UIButtonType.custom)
         profileButton.frame.size = CGSize(width: 30, height: 30)
         //add function for button
-        //button.addTarget(self, action: Selector("goToProfile"), for: UIControlEvents.touchUpInside)
+        profileButton.addTarget(self, action: #selector(segueToProfile), for: UIControlEvents.touchUpInside)
         //set frame
         let profileSize = profileButton.frame.size
         let profileImage = UIImage(named: "Profile")?.resizedImageWithinSquare(rectSize: profileSize)
@@ -183,7 +209,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.rightBarButtonItem = barButton
         
     }
+    
+    @objc func segueToPostView() {
+        performSegue(withIdentifier: "ShowCreatePost", sender: nil)
+    }
 
+    @objc func segueToProfile() {
+        performSegue(withIdentifier: "ShowProfile", sender: nil)
+    }
 
     /*
     // MARK: - Navigation
