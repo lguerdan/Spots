@@ -77,11 +77,11 @@
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="MjG-Ui-cEq">
                                                 <rect key="frame" x="62" y="7" width="250" height="252.5"/>
-                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="MjG-Ui-cEq" secondAttribute="trailing" constant="62.5" id="82X-PP-6fI"/>
                                             <constraint firstAttribute="bottom" secondItem="MjG-Ui-cEq" secondAttribute="bottom" constant="8" id="FaF-9d-p8M"/>
@@ -131,7 +131,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-l4-zvd">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="67"/>
-                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -271,21 +271,21 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MCP-nG-CsI">
-                                                            <rect key="frame" x="63" y="5" width="33.5" height="20.5"/>
+                                                            <rect key="frame" x="83" y="5" width="33.5" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qd6-mg-xmK">
-                                                            <rect key="frame" x="63" y="25.5" width="44" height="14.5"/>
+                                                            <rect key="frame" x="83" y="25.5" width="44" height="14.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Filler" id="v19-5V-6HI">
-                                                            <rect key="frame" x="15" y="0.0" width="33" height="43.5"/>
+                                                            <rect key="frame" x="15" y="0.0" width="53" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </imageView>
                                                     </subviews>
@@ -328,10 +328,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55a-Qq-9av">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="209.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-Jm-5YK">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="209.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
                                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </imageView>
                                         </subviews>
@@ -344,10 +344,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMH-sg-pGd">
-                                        <rect key="frame" x="0.0" y="225.5" width="375" height="52"/>
+                                        <rect key="frame" x="0.0" y="225" width="375" height="52.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dog Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-Du-RpG">
-                                                <rect key="frame" x="16" y="0.0" width="343" height="52"/>
+                                                <rect key="frame" x="16" y="0.0" width="343" height="52.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -476,7 +476,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Filler" width="2553" height="3410"/>
+        <image name="Filler" width="404" height="332"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KuD-Ul-PXb"/>
