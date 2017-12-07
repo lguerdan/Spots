@@ -17,34 +17,30 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
-    
-    let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
-    
-    
-    let zone = Zone.defaultPublicDatabase()
-    
-    
+
+    var dogPost: DogPost? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // retrieving records
-        let zone = Zone.defaultPublicDatabase()
-        zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-            for post in posts{
-                print(post.name)
-            }
-        })
-        dogName.text = dogPost.title
-        
-        
-        // Do any additional setup after loading the view.
+        initDogPostUI()
         setImageIcons()
-        //back button color
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initDogPostUI(){
+        if let dogPost = dogPost {
+            dogImage.image = dogPost.photo
+            dogName.text = dogPost.title
+            dogDesc.text = dogPost.desc
+            print(dogPost.description)
+            ownerName.text = dogPost.posterName.camelCaseToWords()
+        }
     }
     
     func setImageIcons() {
@@ -93,4 +89,22 @@ class DogPostViewController: UIViewController {
 
     }
     
+}
+
+extension String {
+    
+    func camelCaseToWords() -> String {
+        
+        return unicodeScalars.reduce("") {
+            
+            if CharacterSet.uppercaseLetters.contains($1) == true {
+                
+                return ($0 + " " + String($1))
+            }
+            else {
+                
+                return $0 + String($1)
+            }
+        }
+    }
 }
