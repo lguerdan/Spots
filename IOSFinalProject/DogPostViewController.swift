@@ -40,7 +40,27 @@ class DogPostViewController: UIViewController {
             dogDesc.text = dogPost.desc
             print(dogPost.description)
             ownerName.text = dogPost.posterName.camelCaseToWords()
+        
+            print(dogPost.duration)
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+            formatter.locale = .current
+            let strInCurrLocale = formatter.string(from: dogPost.startTime)
+            let dateInCurrLocale = formatter.date(from: strInCurrLocale)
+            
+            
+            var endTime = dogPost.startTime.addingTimeInterval(TimeInterval(dogPost.duration * 60))
+            var currTime = Date()
+            var timeDiff = endTime.timeIntervalSince(currTime)
+            print("Duration: \(Double(dogPost.duration))")
+            print("Start time:  \(dogPost.startTime)")
+            print("End time: \(endTime)")
+            print("Time diff: \(timeDiff)")
+            print(timeDiff)
         }
+        
+        
     }
     
     func setImageIcons() {

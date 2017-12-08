@@ -203,7 +203,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                     var userName : String
                     userName = user?.firstName ?? ""
                     userName += user?.lastName ?? ""
-                    
                     let post = Post(name: name, photo: image, description: description,
                                     startTime: currDate,  duration: durationInt, latitude: latitude, longitude: longitude, isOwner: false, numFlags: 0, posterName: userName)
                     
