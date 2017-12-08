@@ -69,8 +69,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
             //let collectedPosts: [Post] = self.populateByDuration(5, self.posts)
             
             for post in self.posts {
-                let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!, name: post.posterName)
-                print(post.name)
+                let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!,name: post.posterName, posterName: post.posterName, startTime: post.startTime)
+                
                 
                 self.mapView.addAnnotation(dogPost)
             }
@@ -164,8 +164,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
         }
         
         if segue.identifier == "ShowDogPost" {
-            if segue.destination is DogPostViewController {
-//                DogPostViewController.dogName = post.name
+            if let DogPostViewController = segue.destination as? DogPostViewController {
+                DogPostViewController.dogPost = selectedAnnotation
             }
         }
     }
@@ -303,13 +303,8 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if control == view.rightCalloutAccessoryView {
-//            print(view.annotation?.title)
-//            view.annotation?.description
-//            view.annotation?.duration
             selectedAnnotation = view.annotation as? DogPost
-            
             performSegue(withIdentifier: "ShowDogPost", sender: self)
-            
         }
     }
 

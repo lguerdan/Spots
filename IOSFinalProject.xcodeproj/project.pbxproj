@@ -19,6 +19,7 @@
 		F4B6AA621FB4D4060058AC51 /* IOSFinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4B6AA601FB4D4060058AC51 /* IOSFinalProject.xcdatamodeld */; };
 		F4B6AA641FB4D4060058AC51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B6AA631FB4D4060058AC51 /* Assets.xcassets */; };
 		F4B6AA671FB4D4060058AC51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B6AA651FB4D4060058AC51 /* LaunchScreen.storyboard */; };
+		F4C1CDB21FDA064000433447 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1CDB11FDA064000433447 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F4B6AA661FB4D4060058AC51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4B6AA681FB4D4060058AC51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4B6AA6E1FB4D64E0058AC51 /* IOSFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IOSFinalProject.entitlements; sourceTree = "<group>"; };
+		F4C1CDB11FDA064000433447 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				F4B6AA6E1FB4D64E0058AC51 /* IOSFinalProject.entitlements */,
 				F4B6AA591FB4D4060058AC51 /* AppDelegate.swift */,
 				F4B6AA5D1FB4D4060058AC51 /* Main.storyboard */,
+				F4C1CDB11FDA064000433447 /* ProfileViewController.swift */,
 				F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */,
 				F48E1E5E1FBE185300AF61E9 /* MapViewController.swift */,
 				17E42BD31FD72F2F00E840B1 /* DogPostViewController.swift */,
@@ -184,6 +187,7 @@
 				F4B6AA621FB4D4060058AC51 /* IOSFinalProject.xcdatamodeld in Sources */,
 				F48E1E611FBE209800AF61E9 /* CreatePostViewController.swift in Sources */,
 				17E42BD41FD72F2F00E840B1 /* DogPostViewController.swift in Sources */,
+				F4C1CDB21FDA064000433447 /* ProfileViewController.swift in Sources */,
 				F48E1E5F1FBE185300AF61E9 /* MapViewController.swift in Sources */,
 				386111721FD09624007F9EA0 /* CKCodable.swift in Sources */,
 			);

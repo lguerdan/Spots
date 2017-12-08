@@ -17,27 +17,28 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
-    
-    let dogPost = DogPost(title: "Spot", desc: "Our mascot is out and about!", coordinate: CLLocationCoordinate2D(latitude: 38.946547, longitude: -92.328597), duration: 15, photo: UIImage(named: "Dog")!, name: "TestTest")
-    
-    
-    let zone = Zone.defaultPublicDatabase()
-    
-    
+    @IBOutlet weak var imageView: UIImageView!
+
+    var dogPost: DogPost? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // retrieving records
-        let zone = Zone.defaultPublicDatabase()
-        zone.retrieveObjects(completionHandler: { (posts: [Post]) in
-            for post in posts{
-                print(post.name)
-            }
-        })
-        dogName.text = dogPost.title
+        initDogPostUI()
+        setImageIcons()
         
+        // change of font and font color of navigation controller
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //circular UIimage(kind of)
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.height/2
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
         
         // Do any additional setup after loading the view.
         setImageIcons()
+        
         //back button color
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
@@ -45,6 +46,16 @@ class DogPostViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initDogPostUI(){
+        if let dogPost = dogPost {
+            dogImage.image = dogPost.photo
+            dogName.text = dogPost.title
+            dogDesc.text = dogPost.desc
+            print(dogPost.description)
+            ownerName.text = dogPost.posterName.camelCaseToWords()
+        }
     }
     
     func setImageIcons() {
@@ -76,10 +87,39 @@ class DogPostViewController: UIViewController {
     }
 
     @objc func segueToPostView() {
+        //self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
     
     @objc func flagPost() {
+        let alert = UIAlertController(title: "Is this post inappropriate?", message: "Would you like to flag this post?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {
+                (alertAction) -> Void in
+            }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+                (alertAction) -> Void in
+                self.navigationController?.popViewController(animated: true)
+            }))
+        self.present(alert, animated: true, completion: nil)
+
+    }
+    
+}
+
+extension String {
+    
+    func camelCaseToWords() -> String {
         
+        return unicodeScalars.reduce("") {
+            
+            if CharacterSet.uppercaseLetters.contains($1) == true {
+                
+                return ($0 + " " + String($1))
+            }
+            else {
+                
+                return $0 + String($1)
+            }
+        }
     }
 }
