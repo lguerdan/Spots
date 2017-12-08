@@ -87,7 +87,7 @@ class DogPostViewController: UIViewController {
     }
 
     @objc func segueToPostView() {
-        self.navigationController?.popViewController(animated: false)
+        //self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
     
