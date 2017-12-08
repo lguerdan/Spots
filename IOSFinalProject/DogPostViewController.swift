@@ -12,11 +12,12 @@ import CoreLocation
 class DogPostViewController: UIViewController {
 
     @IBOutlet weak var dogImage: UIImageView!
-    @IBOutlet weak var dogName: UITextField!
-    @IBOutlet weak var ownerName: UITextField!
+    @IBOutlet weak var dogName: UILabel!
+    @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
+    @IBOutlet weak var imageView: UIImageView!
 
     var dogPost: DogPost? = nil
 
@@ -25,6 +26,20 @@ class DogPostViewController: UIViewController {
         initDogPostUI()
         setImageIcons()
         
+        // change of font and font color of navigation controller
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //circular UIimage(kind of)
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.height/2
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
+        
+        // Do any additional setup after loading the view.
+        setImageIcons()
+        
+        //back button color
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
@@ -85,14 +100,14 @@ class DogPostViewController: UIViewController {
         let flagBarButton = UIBarButtonItem(customView: flagButton)
         //assign button to bottombar
         //Need to add segue to the createpost
-        flagButton.addTarget(self, action: #selector(segueToPostView), for: .touchUpInside)
+        flagButton.addTarget(self, action: #selector(flagPost), for: .touchUpInside)
         
         let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         self.bottomBar.setItems([spacing, postBarButton, spacing, flagBarButton], animated: false)
     }
 
     @objc func segueToPostView() {
-        self.navigationController?.popViewController(animated: false)
+        //self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
     

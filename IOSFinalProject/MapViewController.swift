@@ -9,7 +9,8 @@ import CoreLocation
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePostViewControllerDelegate {
+    
     @IBOutlet weak var mapView: MKMapView!
     
     
@@ -102,6 +103,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         return populatedPosts
     }
     
+    func finishPassing(post: DogPost) {
+        self.mapView.addAnnotation(post)
+    }
+    
     func getOwnersPosts(_ name: String, _ posts: [Post]) -> [Post] {
         var populatedPosts: [Post] = []
         
@@ -152,6 +157,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if let CreatePostViewController = segue.destination as? CreatePostViewController {
             CreatePostViewController.latitude = currLocation.latitude
             CreatePostViewController.longitude = currLocation.longitude
+        }
+        
+        if let destination = segue.destination as? CreatePostViewController {
+            destination.delegate = self
         }
         
         if segue.identifier == "ShowDogPost" {
@@ -207,8 +216,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let barButton = UIBarButtonItem(customView: profileButton)
         //assign button to navigationbar
         self.navigationItem.rightBarButtonItem = barButton
-        
-        performSegue(withIdentifier: "ShowDogPost", sender: nil)
         
     }
     
