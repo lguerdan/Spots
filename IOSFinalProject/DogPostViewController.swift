@@ -12,8 +12,8 @@ import CoreLocation
 class DogPostViewController: UIViewController {
 
     @IBOutlet weak var dogImage: UIImageView!
-    @IBOutlet weak var dogName: UITextField!
-    @IBOutlet weak var ownerName: UITextField!
+    @IBOutlet weak var dogName: UILabel!
+    @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var dogDesc: UITextView!
     @IBOutlet weak var bottomBar: UIToolbar!
@@ -80,7 +80,7 @@ class DogPostViewController: UIViewController {
         let flagBarButton = UIBarButtonItem(customView: flagButton)
         //assign button to bottombar
         //Need to add segue to the createpost
-        flagButton.addTarget(self, action: #selector(segueToPostView), for: .touchUpInside)
+        flagButton.addTarget(self, action: #selector(flagPost), for: .touchUpInside)
         
         let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         self.bottomBar.setItems([spacing, postBarButton, spacing, flagBarButton], animated: false)

@@ -11,10 +11,24 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var bottomToolBar: UIToolbar!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //circular UIimage(kind of)
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.layer.cornerRadius = imageView.frame.size.height/2
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
+        
+        // change of font and font color of navigation controller
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        //back button color
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         // Do any additional setup after loading the view.
         setImageIcons()
     }
