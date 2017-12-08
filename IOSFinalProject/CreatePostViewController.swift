@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
+protocol CreatePostViewControllerDelegate {
+    func finishPassing(post: DogPost)
+}
 
 class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var delegate : CreatePostViewControllerDelegate?
     var latitude: Double? = nil
     var longitude: Double? = nil
 
@@ -213,8 +218,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                             print(error as Any)
                         }
                     })
+                    let dogPost = DogPost(title: name, desc: description, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), duration: durationInt, photo: image!, name: userName, posterName: userName, startTime: currDate)
+                    self.delegate?.finishPassing(post: dogPost)
                 }
             })
+            navigationController?.popViewController(animated: true)
         }
     }
     
