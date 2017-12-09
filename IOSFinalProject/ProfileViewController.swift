@@ -12,7 +12,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var postersName: UILabel!
     @IBOutlet weak var usersPosts: UITableView!
     var posts: [Post] = []

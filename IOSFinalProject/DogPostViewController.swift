@@ -76,10 +76,10 @@ class DogPostViewController: UIViewController {
             let seconds = timeRemainingSeconds % 60
             let minutes = (timeRemainingSeconds / 60) % 60
             if seconds < 10{
-                duration.text = "\(minutes) : 0\(seconds) remaining"
+                duration.text = "\(minutes) : 0\(seconds)"
             }
             else{
-               duration.text = "\(minutes) : \(seconds) remaining"
+               duration.text = "\(minutes) : \(seconds)"
             }
             timeRemainingSeconds -= 1
         }
