@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var postersName: UILabel!
     @IBOutlet weak var usersPosts: UITableView!
     var posts: [Post] = []
     
@@ -38,6 +39,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         usersPosts.delegate = self
         usersPosts.dataSource = self
+        
+        self.postersName.text = self.username
         
         loadAndPopulatePostVar()
     }
@@ -113,4 +116,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            
+        }
+    }
 }

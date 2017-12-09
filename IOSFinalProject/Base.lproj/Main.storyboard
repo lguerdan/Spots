@@ -317,6 +317,7 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="wgr-zS-n7D" id="Vxq-9k-sQK"/>
                         <outlet property="imageView" destination="PN2-C1-ity" id="BDP-rJ-JHO"/>
+                        <outlet property="postersName" destination="ma4-Mj-Xg7" id="dhA-GG-fzb"/>
                         <outlet property="usersPosts" destination="PL2-rY-h4o" id="K9X-aN-qxA"/>
                         <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="ewI-hd-FTr"/>
                     </connections>
