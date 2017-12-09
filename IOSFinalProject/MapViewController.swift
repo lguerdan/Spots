@@ -17,7 +17,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var moveToCreatePost: UIBarButtonItem!
     @IBOutlet weak var moveToProfile: UIBarButtonItem!
-    @IBOutlet weak var loadingLabel: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var loadingView: UIImageView!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -44,6 +45,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingView.image = UIImage.gifImageWithURL("https://cdn.pbrd.co/images/GXt5GOG.gif")
         let zoneCheck = Zone.defaultPublicDatabase()
         zoneCheck.userInformation(completionHandler: { (user, error) in
             if error != nil {
@@ -309,7 +311,11 @@ extension MapViewController: MKMapViewDelegate {
             }
         })
         sleep(1)
-        self.loadingLabel.text = ""
+        if loadingView.image != nil {
+            loadingView.image = nil
+            loadingView.isHidden = true
+            backgroundView.isHidden = true
+        }
         return view
     }
     

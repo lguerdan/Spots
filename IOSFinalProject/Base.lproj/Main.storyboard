@@ -34,22 +34,29 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EJE-Gf-XiZ"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Dog Posts..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUK-fj-dUf">
-                                <rect key="frame" x="108.5" y="355" width="158" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiL-Hx-eqU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OU0-yF-ILe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="OU0-yF-ILe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2au-jR-SJ4"/>
+                            <constraint firstItem="OU0-yF-ILe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8HH-mv-NAA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jdb-hK-Vlr" secondAttribute="bottom" id="Ael-Nw-OFL"/>
+                            <constraint firstItem="RiL-Hx-eqU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bm7-F2-cfE"/>
                             <constraint firstItem="jdb-hK-Vlr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="FHv-IM-GGi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RiL-Hx-eqU" secondAttribute="bottom" id="Fid-Bi-fGN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OU0-yF-ILe" secondAttribute="bottom" id="Jee-WW-UJc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jdb-hK-Vlr" secondAttribute="trailing" id="KRB-ZC-7tb"/>
                             <constraint firstItem="jdb-hK-Vlr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vqi-gZ-1wW"/>
-                            <constraint firstItem="vUK-fj-dUf" firstAttribute="centerY" secondItem="jdb-hK-Vlr" secondAttribute="centerY" id="fOz-vx-fr2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OU0-yF-ILe" secondAttribute="trailing" id="jU3-Sa-sFR"/>
                             <constraint firstItem="jdb-hK-Vlr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k0A-2I-Tdz"/>
-                            <constraint firstItem="vUK-fj-dUf" firstAttribute="centerX" secondItem="jdb-hK-Vlr" secondAttribute="centerX" id="kXS-D8-KLf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RiL-Hx-eqU" secondAttribute="trailing" id="kDR-vz-sS0"/>
+                            <constraint firstItem="RiL-Hx-eqU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="o0u-D9-zPC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -58,8 +65,9 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="94s-S6-1KT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundView" destination="RiL-Hx-eqU" id="ZUw-bf-T6m"/>
                         <outlet property="bottomToolBar" destination="63e-AJ-TQV" id="Nlj-sq-fu3"/>
-                        <outlet property="loadingLabel" destination="vUK-fj-dUf" id="N9U-oG-jcd"/>
+                        <outlet property="loadingView" destination="OU0-yF-ILe" id="NSq-a2-KA2"/>
                         <outlet property="mapView" destination="jdb-hK-Vlr" id="Yxo-NW-iOl"/>
                         <segue destination="mhT-9g-eiE" kind="show" identifier="ShowDogPost" id="y9j-jT-vX0"/>
                         <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="IEX-zA-R5R"/>
@@ -499,6 +507,6 @@
         <image name="Filler" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ewI-hd-FTr"/>
+        <segue reference="IEX-zA-R5R"/>
     </inferredMetricsTieBreakers>
 </document>

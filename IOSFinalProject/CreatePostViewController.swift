@@ -66,13 +66,12 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //toolbar button colors
         self.cancelButton.tintColor = UIColor.white
         self.postButton.tintColor = UIColor.white
-        self.seperator.tintColor = UIColor.white
+    
         
         //position adjustments of toolbar
         self.cancelButton.setTitlePositionAdjustment(UIOffset(horizontal: 10, vertical: 0), for: UIBarMetrics.default)
-        self.seperator.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 35), for: UIBarMetrics.default)
-        //self.seperator.isEnabled = false
-        
+        seperator.isEnabled = false
+        seperator.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size:18) as Any], for: UIControlState.disabled)
         
         //toolbar font
         toolbar.barTintColor = UIColor(rgb: 0xE77C1E)

@@ -12,6 +12,7 @@
 		55475D981FCDE781003B0045 /* DogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55475D971FCDE781003B0045 /* DogPost.swift */; };
 		55D1B0341FD0D25F00E514A3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D1B0331FD0D25F00E514A3 /* CloudKit.framework */; };
 		60FCE9C81FD33B2D0028795A /* DogAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCE9C71FD33B2D0028795A /* DogAnnotationView.swift */; };
+		60FFAA2B1FDC9C9200BF81F1 /* gifSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FFAA2A1FDC9C9200BF81F1 /* gifSupport.swift */; };
 		F48E1E5F1FBE185300AF61E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E1E5E1FBE185300AF61E9 /* MapViewController.swift */; };
 		F48E1E611FBE209800AF61E9 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */; };
 		F4B6AA5A1FB4D4060058AC51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B6AA591FB4D4060058AC51 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		55475D971FCDE781003B0045 /* DogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPost.swift; sourceTree = "<group>"; };
 		55D1B0331FD0D25F00E514A3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		60FCE9C71FD33B2D0028795A /* DogAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAnnotationView.swift; sourceTree = "<group>"; };
+		60FFAA2A1FDC9C9200BF81F1 /* gifSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifSupport.swift; sourceTree = "<group>"; };
 		F48E1E5E1FBE185300AF61E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		F4B6AA561FB4D4060058AC51 /* IOSFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 				386111711FD09624007F9EA0 /* CKCodable.swift */,
 				F4B6AA6E1FB4D64E0058AC51 /* IOSFinalProject.entitlements */,
 				F4B6AA591FB4D4060058AC51 /* AppDelegate.swift */,
+				60FFAA2A1FDC9C9200BF81F1 /* gifSupport.swift */,
 				F4B6AA5D1FB4D4060058AC51 /* Main.storyboard */,
 				F4C1CDB11FDA064000433447 /* ProfileViewController.swift */,
 				F48E1E601FBE209800AF61E9 /* CreatePostViewController.swift */,
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60FFAA2B1FDC9C9200BF81F1 /* gifSupport.swift in Sources */,
 				F4B6AA5A1FB4D4060058AC51 /* AppDelegate.swift in Sources */,
 				55475D981FCDE781003B0045 /* DogPost.swift in Sources */,
 				60FCE9C81FD33B2D0028795A /* DogAnnotationView.swift in Sources */,
