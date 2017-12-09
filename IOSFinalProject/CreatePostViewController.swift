@@ -27,6 +27,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var postButton: UIBarButtonItem!
     @IBOutlet weak var textViewDesc: UITextView!
+    @IBOutlet weak var seperator: UIBarButtonItem!
     
     
     //Duration picker
@@ -65,6 +66,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         //toolbar button colors
         self.cancelButton.tintColor = UIColor.white
         self.postButton.tintColor = UIColor.white
+        self.seperator.tintColor = UIColor.white
+        
+        //position adjustments of toolbar
+        self.cancelButton.setTitlePositionAdjustment(UIOffset(horizontal: 10, vertical: 0), for: UIBarMetrics.default)
+        self.seperator.setTitlePositionAdjustment(UIOffset(horizontal: -2, vertical: 35), for: UIBarMetrics.default)
+        //self.seperator.isEnabled = false
+        
         
         //toolbar font
         toolbar.barTintColor = UIColor(rgb: 0xE77C1E)
