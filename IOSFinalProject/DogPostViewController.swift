@@ -26,8 +26,6 @@ class DogPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initDogPostUI()
-        countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("updateTimer")),
-            userInfo: nil, repeats: true)
         setImageIcons()
         
         // change of font and font color of navigation controller
@@ -55,7 +53,8 @@ class DogPostViewController: UIViewController {
     
     func initDogPostUI(){
         if let dogPost = dogPost {
-            dogImage.image = dogPost.photo
+            let newImage = UIImage(cgImage: (dogPost.photo.cgImage!), scale: (dogPost.photo.scale), orientation: UIImageOrientation.right)
+            dogImage.image = newImage
             dogName.text = dogPost.title
             dogDesc.text = dogPost.desc
             ownerName.text = dogPost.posterName.camelCaseToWords()
@@ -63,14 +62,25 @@ class DogPostViewController: UIViewController {
             let endTime = dogPost.startTime.addingTimeInterval(TimeInterval(dogPost.duration * 60))
             let currTime = Date()
             timeRemainingSeconds = Int(endTime.timeIntervalSince(currTime))
+            
+            Timer.scheduledTimer(timeInterval: 1,
+                                 target: self,
+                                 selector: #selector(self.updateTimer),
+                                 userInfo: nil,
+                                 repeats: true)
         }
     }
     
-    func updateTimer(){
+    @objc func updateTimer(){
         if(timeRemainingSeconds > 0){
             let seconds = timeRemainingSeconds % 60
             let minutes = (timeRemainingSeconds / 60) % 60
-            duration.text = "\(minutes) : \(seconds) remaining"
+            if seconds < 10{
+                duration.text = "\(minutes) : 0\(seconds) remaining"
+            }
+            else{
+               duration.text = "\(minutes) : \(seconds) remaining"
+            }
             timeRemainingSeconds -= 1
         }
     }
