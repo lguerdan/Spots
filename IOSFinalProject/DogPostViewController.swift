@@ -20,10 +20,14 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
 
     var dogPost: DogPost? = nil
+    var timeRemainingSeconds: Int = 0
+    var countDownTimer: Timer? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initDogPostUI()
+        countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("updateTimer")),
+            userInfo: nil, repeats: true)
         setImageIcons()
         
         // change of font and font color of navigation controller
@@ -48,34 +52,27 @@ class DogPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func initDogPostUI(){
         if let dogPost = dogPost {
             dogImage.image = dogPost.photo
             dogName.text = dogPost.title
             dogDesc.text = dogPost.desc
-            print(dogPost.description)
             ownerName.text = dogPost.posterName.camelCaseToWords()
         
-            print(dogPost.duration)
-            
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm"
-            formatter.locale = .current
-            let strInCurrLocale = formatter.string(from: dogPost.startTime)
-            let dateInCurrLocale = formatter.date(from: strInCurrLocale)
-            
-            
-            var endTime = dogPost.startTime.addingTimeInterval(TimeInterval(dogPost.duration * 60))
-            var currTime = Date()
-            var timeDiff = endTime.timeIntervalSince(currTime)
-            print("Duration: \(Double(dogPost.duration))")
-            print("Start time:  \(dogPost.startTime)")
-            print("End time: \(endTime)")
-            print("Time diff: \(timeDiff)")
-            print(timeDiff)
+            let endTime = dogPost.startTime.addingTimeInterval(TimeInterval(dogPost.duration * 60))
+            let currTime = Date()
+            timeRemainingSeconds = Int(endTime.timeIntervalSince(currTime))
         }
-        
-        
+    }
+    
+    func updateTimer(){
+        if(timeRemainingSeconds > 0){
+            let seconds = timeRemainingSeconds % 60
+            let minutes = (timeRemainingSeconds / 60) % 60
+            duration.text = "\(minutes) : \(seconds) remaining"
+            timeRemainingSeconds -= 1
+        }
     }
     
     func setImageIcons() {
