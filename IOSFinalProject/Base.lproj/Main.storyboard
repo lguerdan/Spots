@@ -261,7 +261,7 @@
                                         <rect key="frame" x="0.0" y="399" width="375" height="125.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="MCP-nG-CsI" detailTextLabel="Qd6-mg-xmK" imageView="v19-5V-6HI" style="IBUITableViewCellStyleSubtitle" id="Oyd-7f-Q8n">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="MCP-nG-CsI" detailTextLabel="Qd6-mg-xmK" imageView="v19-5V-6HI" style="IBUITableViewCellStyleSubtitle" id="Oyd-7f-Q8n">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oyd-7f-Q8n" id="Mmq-te-3si">
@@ -317,6 +317,7 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="wgr-zS-n7D" id="Vxq-9k-sQK"/>
                         <outlet property="imageView" destination="PN2-C1-ity" id="BDP-rJ-JHO"/>
+                        <outlet property="usersPosts" destination="PL2-rY-h4o" id="K9X-aN-qxA"/>
                         <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="ewI-hd-FTr"/>
                     </connections>
                 </viewController>

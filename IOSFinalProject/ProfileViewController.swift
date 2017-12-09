@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var usersPosts: UITableView!
+    var posts: [Post] = []
+    
+    var username: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +35,27 @@ class ProfileViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setImageIcons()
+        
+        usersPosts.delegate = self
+        usersPosts.dataSource = self
+        
+        loadAndPopulatePostVar()
+    }
+    
+    func loadAndPopulatePostVar() {
+        // Retrieve records
+        let zone = Zone.defaultPublicDatabase()
+        zone.retrieveObjects(completionHandler: { (posts: [Post]) in
+            self.posts = posts
+            
+            print(self.username)
+            self.posts = self.posts.filter() { $0.posterName == self.username }
+            
+            
+            print(self.posts.count)
+            
+            self.usersPosts.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,4 +82,35 @@ class ProfileViewController: UIViewController {
     @objc func segueToPostView() {
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.posts.count == 0 {
+            return 1
+        }
+        return self.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        if self.posts.count == 0 {
+            cell.textLabel?.text = "Loading post history..."
+            cell.imageView?.image = nil
+            cell.detailTextLabel?.text = ""
+            return cell
+        }
+        
+        let post = posts[indexPath.row]
+        
+        cell.textLabel?.text = post.name
+        cell.detailTextLabel?.text = "Poster: \(post.posterName)"
+        cell.imageView?.image = post.photo?.image
+        
+        return cell
+    }
+    
 }
