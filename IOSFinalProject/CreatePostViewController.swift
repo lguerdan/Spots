@@ -70,7 +70,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         //position adjustments of toolbar
         self.cancelButton.setTitlePositionAdjustment(UIOffset(horizontal: 10, vertical: 0), for: UIBarMetrics.default)
-        self.seperator.setTitlePositionAdjustment(UIOffset(horizontal: -2, vertical: 35), for: UIBarMetrics.default)
+        self.seperator.setTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 35), for: UIBarMetrics.default)
         //self.seperator.isEnabled = false
         
         
