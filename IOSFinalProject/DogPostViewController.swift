@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import MapKit
+import Contacts
 
 class DogPostViewController: UIViewController {
 
@@ -109,14 +111,27 @@ class DogPostViewController: UIViewController {
         //Need to add segue to the createpost
         flagButton.addTarget(self, action: #selector(flagPost), for: .touchUpInside)
         
+        let mapButton: UIButton = UIButton(type: UIButtonType.custom)
+        mapButton.frame.size = CGSize(width: 30, height: 30)
+        //set frame
+        let mapSize = mapButton.frame.size
+        let mapImage = UIImage(named: "Maps-icon")?.resizedImageWithinSquare(rectSize: mapSize)
+        mapButton.setImage(mapImage, for: .normal)
+        let mapBarButton = UIBarButtonItem(customView: mapButton)
+        
+        //assign button to bottombar
+        //Need to add segue to the createpost
+        mapButton.addTarget(self, action: #selector(openInMaps), for: .touchUpInside)
+        
         let spacing = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        self.bottomBar.setItems([spacing, postBarButton, spacing, flagBarButton], animated: false)
+        self.bottomBar.setItems([mapBarButton ,spacing, postBarButton, spacing, flagBarButton], animated: false)
     }
 
     @objc func segueToPostView() {
         //self.navigationController?.popViewController(animated: false)
         performSegue(withIdentifier: "ShowCreatePost", sender: nil)
     }
+    
     
     @objc func flagPost() {
         let alert = UIAlertController(title: "Is this post inappropriate?", message: "Would you like to flag this post?", preferredStyle: UIAlertControllerStyle.alert)
@@ -131,6 +146,18 @@ class DogPostViewController: UIViewController {
 
     }
     
+    @objc func openInMaps() {
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        mapItem().openInMaps(launchOptions: launchOptions)
+    }
+    
+    func mapItem() -> MKMapItem {
+        let addressDict = [CNPostalAddressStreetKey: dogPost?.name]
+        let placemark = MKPlacemark(coordinate: (dogPost?.coordinate)!, addressDictionary: addressDict)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = dogPost?.name
+        return mapItem
+    }
 }
 
 extension String {
