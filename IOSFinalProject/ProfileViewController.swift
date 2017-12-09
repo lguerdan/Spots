@@ -109,7 +109,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let post = posts[indexPath.row]
         
         cell.textLabel?.text = post.name
-        cell.detailTextLabel?.text = "Poster: \(post.posterName)"
+        cell.detailTextLabel?.text = "Poster: \(post.posterName.camelCaseToWords())"
         cell.imageView?.image = post.photo?.image
         
         return cell

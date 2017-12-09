@@ -17,6 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
     @IBOutlet weak var bottomToolBar: UIToolbar!
     @IBOutlet weak var moveToCreatePost: UIBarButtonItem!
     @IBOutlet weak var moveToProfile: UIBarButtonItem!
+    @IBOutlet weak var loadingLabel: UILabel!
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
@@ -304,6 +305,7 @@ extension MapViewController: MKMapViewDelegate {
             }
         })
         sleep(1)
+        self.loadingLabel.text = ""
         return view
     }
     

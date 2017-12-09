@@ -34,6 +34,12 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EJE-Gf-XiZ"/>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Dog Posts..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUK-fj-dUf">
+                                <rect key="frame" x="108.5" y="355" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -41,7 +47,9 @@
                             <constraint firstItem="jdb-hK-Vlr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="FHv-IM-GGi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jdb-hK-Vlr" secondAttribute="trailing" id="KRB-ZC-7tb"/>
                             <constraint firstItem="jdb-hK-Vlr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vqi-gZ-1wW"/>
+                            <constraint firstItem="vUK-fj-dUf" firstAttribute="centerY" secondItem="jdb-hK-Vlr" secondAttribute="centerY" id="fOz-vx-fr2"/>
                             <constraint firstItem="jdb-hK-Vlr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="k0A-2I-Tdz"/>
+                            <constraint firstItem="vUK-fj-dUf" firstAttribute="centerX" secondItem="jdb-hK-Vlr" secondAttribute="centerX" id="kXS-D8-KLf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -51,6 +59,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomToolBar" destination="63e-AJ-TQV" id="Nlj-sq-fu3"/>
+                        <outlet property="loadingLabel" destination="vUK-fj-dUf" id="N9U-oG-jcd"/>
                         <outlet property="mapView" destination="jdb-hK-Vlr" id="Yxo-NW-iOl"/>
                         <segue destination="mhT-9g-eiE" kind="show" identifier="ShowDogPost" id="y9j-jT-vX0"/>
                         <segue destination="4Hg-dB-jbb" kind="show" identifier="ShowCreatePost" id="IEX-zA-R5R"/>
@@ -156,7 +165,8 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="gN8-Pp-5TA"/>
-                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="h6c-a1-eo2"/>
+                                            <barButtonItem title="|" id="CBl-mc-zCp"/>
+                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="4C5-bl-aJ6"/>
                                             <barButtonItem title="Cancel" id="bBn-YK-HA5">
                                                 <connections>
                                                     <action selector="cancelDogPost:" destination="4Hg-dB-jbb" id="Mux-Fs-6Pg"/>
@@ -191,6 +201,7 @@
                         <outlet property="durationTextField" destination="s1l-l4-zvd" id="hbZ-pU-lgn"/>
                         <outlet property="imageView" destination="MjG-Ui-cEq" id="xBX-Rx-puR"/>
                         <outlet property="postButton" destination="ygv-dK-2mS" id="BAg-JF-RQK"/>
+                        <outlet property="seperator" destination="CBl-mc-zCp" id="31p-OL-Mfs"/>
                         <outlet property="textViewDesc" destination="GKc-5m-afW" id="ekk-W1-yon"/>
                         <outlet property="toolbar" destination="GfB-4o-Sem" id="tR9-M7-8rq"/>
                     </connections>
