@@ -27,6 +27,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
     
     var selectedAnnotation : DogPost?
     
+    var userName: String = ""
+    
     var posts: [Post] = []
     
     var currLocation : CLLocationCoordinate2D = CLLocationCoordinate2D()
@@ -176,6 +178,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
             destination.delegate = self
         }
         
+        if let destination = segue.destination as? ProfileViewController {
+            destination.username = self.userName
+        }
+        
         if segue.identifier == "ShowDogPost" {
             if let DogPostViewController = segue.destination as? DogPostViewController {
                 DogPostViewController.dogPost = selectedAnnotation
@@ -288,6 +294,7 @@ extension MapViewController: MKMapViewDelegate {
                 var userName : String
                 userName = user?.firstName ?? ""
                 userName += user?.lastName ?? ""
+                self.userName = userName
                 
                 if userName == annotation.name {
                     view.image = self.maskRoundedImage(image: view.image!, radius: 28, color: UIColor(rgb: 0x4286f4).cgColor)
