@@ -14,7 +14,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var usersPosts: UITableView!
-    
     var posts: [Post] = []
     
     var username: String = ""
