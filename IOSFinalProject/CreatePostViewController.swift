@@ -44,6 +44,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         return bar
     }()
     
+    var hasSubmittedImage: Bool = false
+    
     //Image picker
     let picker = UIImagePickerController()
     
@@ -134,6 +136,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
         imageView.contentMode = .scaleAspectFit //3
         imageView.image = chosenImage //4
+        hasSubmittedImage = true
         dismiss(animated: true, completion: nil) //5
     }
     
@@ -161,7 +164,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             return
         }
         
-        if self.dogName.text!.isEmpty || self.dogDesc.text!.isEmpty || self.durationTextField.text!.isEmpty {
+        if self.dogName.text!.isEmpty || self.dogDesc.text!.isEmpty || self.durationTextField.text!.isEmpty || hasSubmittedImage == false {
             let alert = UIAlertController(title: "Error Creating Post", message: "This is an alert.", preferredStyle: .alert)
             
             if(self.dogName.text!.isEmpty){
@@ -174,6 +177,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
             if(self.durationTextField.text!.isEmpty){
                 alert.message = "Please provide a post duration."
+            }
+            
+            if(hasSubmittedImage == false){
+                alert.message = "Please provide an image."
             }
             
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
