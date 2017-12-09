@@ -20,6 +20,8 @@ class DogPostViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
 
     var dogPost: DogPost? = nil
+    var timeRemainingSeconds: Int = 0
+    var countDownTimer: Timer? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +50,38 @@ class DogPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func initDogPostUI(){
         if let dogPost = dogPost {
-            dogImage.image = dogPost.photo
+            let newImage = UIImage(cgImage: (dogPost.photo.cgImage!), scale: (dogPost.photo.scale), orientation: UIImageOrientation.right)
+            dogImage.image = newImage
             dogName.text = dogPost.title
             dogDesc.text = dogPost.desc
-            print(dogPost.description)
             ownerName.text = dogPost.posterName.camelCaseToWords()
+        
+            let endTime = dogPost.startTime.addingTimeInterval(TimeInterval(dogPost.duration * 60))
+            let currTime = Date()
+            timeRemainingSeconds = Int(endTime.timeIntervalSince(currTime))
+            
+            Timer.scheduledTimer(timeInterval: 1,
+                                 target: self,
+                                 selector: #selector(self.updateTimer),
+                                 userInfo: nil,
+                                 repeats: true)
+        }
+    }
+    
+    @objc func updateTimer(){
+        if(timeRemainingSeconds > 0){
+            let seconds = timeRemainingSeconds % 60
+            let minutes = (timeRemainingSeconds / 60) % 60
+            if seconds < 10{
+                duration.text = "\(minutes) : 0\(seconds) remaining"
+            }
+            else{
+               duration.text = "\(minutes) : \(seconds) remaining"
+            }
+            timeRemainingSeconds -= 1
         }
     }
     
