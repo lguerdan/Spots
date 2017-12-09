@@ -26,6 +26,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
         return manager
     }()
     
+    var postAnnotation = [DogPost]()
+    
     var selectedAnnotation : DogPost?
     
     var userName: String = ""
@@ -87,9 +89,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
             for post in self.posts {
                 let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!,name: post.posterName, posterName: post.posterName, startTime: post.startTime)
                 
-                
-                self.mapView.addAnnotation(dogPost)
+                self.postAnnotation.append(dogPost)
             }
+             self.mapView.addAnnotations(self.postAnnotation)
         })
         
         setImageIcons()
@@ -121,6 +123,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
     
     func finishPassing(post: DogPost) {
         self.mapView.addAnnotation(post)
+        self.postAnnotation.append(post)
+//        print("finished passing data")
     }
     
     func getOwnersPosts(_ name: String, _ posts: [Post]) -> [Post] {
