@@ -211,10 +211,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Aa-3r-I7L">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="250.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
-                                                <rect key="frame" x="60" y="12" width="255" height="180"/>
+                                                <rect key="frame" x="60" y="12" width="255" height="234.5"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -226,10 +226,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpW-a9-j8s">
-                                        <rect key="frame" x="0.0" y="212" width="375" height="49"/>
+                                        <rect key="frame" x="0.0" y="266.5" width="375" height="50.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma4-Mj-Xg7">
-                                                <rect key="frame" x="142" y="2.5" width="92" height="45"/>
+                                                <rect key="frame" x="142" y="3" width="92" height="45"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -242,10 +242,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-O2-zaM">
-                                        <rect key="frame" x="0.0" y="277" width="375" height="49"/>
+                                        <rect key="frame" x="0.0" y="333" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-KJ-mLA">
-                                                <rect key="frame" x="142" y="2.5" width="92" height="45"/>
+                                                <rect key="frame" x="142" y="3" width="92" height="45"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -258,7 +258,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-rY-h4o">
-                                        <rect key="frame" x="0.0" y="342" width="375" height="196"/>
+                                        <rect key="frame" x="0.0" y="399" width="375" height="125.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="MCP-nG-CsI" detailTextLabel="Qd6-mg-xmK" imageView="v19-5V-6HI" style="IBUITableViewCellStyleSubtitle" id="Oyd-7f-Q8n">
@@ -269,21 +269,21 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MCP-nG-CsI">
-                                                            <rect key="frame" x="83" y="5" width="33.5" height="20.5"/>
+                                                            <rect key="frame" x="88" y="5" width="33.5" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qd6-mg-xmK">
-                                                            <rect key="frame" x="83" y="25.5" width="44" height="14.5"/>
+                                                            <rect key="frame" x="88" y="25.5" width="44" height="14.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Filler" id="v19-5V-6HI">
-                                                            <rect key="frame" x="15" y="0.0" width="53" height="43.5"/>
+                                                            <rect key="frame" x="15" y="0.0" width="58" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </imageView>
                                                     </subviews>
@@ -292,15 +292,15 @@
                                         </prototypes>
                                     </tableView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgr-zS-n7D">
-                                        <rect key="frame" x="0.0" y="554" width="375" height="49"/>
+                                        <rect key="frame" x="0.0" y="540.5" width="375" height="62.5"/>
                                         <items/>
                                     </toolbar>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="SpW-a9-j8s" secondAttribute="height" multiplier="4:1" id="6ex-2f-Mlv"/>
-                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="PL2-rY-h4o" secondAttribute="height" id="Qp1-xh-Hqk"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="SpW-a9-j8s" secondAttribute="height" multiplier="5:1" id="6ex-2f-Mlv"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="PL2-rY-h4o" secondAttribute="height" multiplier="2:1" id="Qp1-xh-Hqk"/>
                                     <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="wgr-zS-n7D" secondAttribute="height" multiplier="4:1" id="ZAJ-b6-yjA"/>
-                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="eFT-O2-zaM" secondAttribute="height" multiplier="4:1" id="nbw-iT-zD3"/>
+                                    <constraint firstItem="1Aa-3r-I7L" firstAttribute="height" secondItem="eFT-O2-zaM" secondAttribute="height" multiplier="5:1" id="nbw-iT-zD3"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -386,7 +386,7 @@
                                         <rect key="frame" x="0.0" y="397" width="375" height="43.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4O1-DY-BmZ">
-                                                <rect key="frame" x="146.5" y="-4.5" width="84" height="52"/>
+                                                <rect key="frame" x="145.5" y="-4.5" width="84" height="52"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="37"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -480,9 +480,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Filler" width="404" height="332"/>
+        <image name="Filler" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KuD-Ul-PXb"/>
+        <segue reference="ewI-hd-FTr"/>
     </inferredMetricsTieBreakers>
 </document>
