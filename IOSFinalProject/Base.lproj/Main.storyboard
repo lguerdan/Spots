@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2l-PK-UL3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2l-PK-UL3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -232,7 +232,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Aa-3r-I7L">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Filler" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="propic" translatesAutoresizingMaskIntoConstraints="NO" id="PN2-C1-ity">
                                                 <rect key="frame" x="60" y="12" width="255" height="249"/>
                                             </imageView>
                                         </subviews>
@@ -509,8 +509,9 @@
     </scenes>
     <resources>
         <image name="Filler" width="800" height="600"/>
+        <image name="propic" width="410" height="492"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KuD-Ul-PXb"/>
+        <segue reference="ewI-hd-FTr"/>
     </inferredMetricsTieBreakers>
 </document>
