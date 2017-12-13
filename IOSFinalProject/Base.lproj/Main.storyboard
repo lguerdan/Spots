@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2l-PK-UL3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K2l-PK-UL3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -356,7 +356,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMH-sg-pGd">
                                         <rect key="frame" x="0.0" y="277.5" width="375" height="43.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRc-r0-9A7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="WRc-r0-9A7">
                                                 <rect key="frame" x="117.5" y="4" width="74.5" height="36.5"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="26"/>
                                                 <nil key="textColor"/>
@@ -379,14 +379,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLn-lp-pth">
                                         <rect key="frame" x="0.0" y="337" width="375" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzC-s8-iwn">
-                                                <rect key="frame" x="135" y="4" width="74.5" height="36.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzC-s8-iwn">
+                                                <rect key="frame" x="135" y="4" width="230" height="36.5"/>
                                                 <fontDescription key="fontDescription" name="GujaratiSangamMN" family="Gujarati Sangam MN" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiF-u5-vG4">
                                                 <rect key="frame" x="26" y="12.5" width="99" height="19.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="99" id="vPC-hb-mt4"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -394,7 +397,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="qiF-u5-vG4" firstAttribute="leading" secondItem="XLn-lp-pth" secondAttribute="leading" constant="26" id="2OE-7A-VVH"/>
-                                            <constraint firstItem="bzC-s8-iwn" firstAttribute="centerY" secondItem="XLn-lp-pth" secondAttribute="centerY" id="Pgt-Hw-cdE"/>
+                                            <constraint firstItem="bzC-s8-iwn" firstAttribute="centerY" secondItem="qiF-u5-vG4" secondAttribute="centerY" id="W3i-9w-WK6"/>
+                                            <constraint firstAttribute="trailing" secondItem="bzC-s8-iwn" secondAttribute="trailing" constant="10" id="eFk-V5-22E"/>
                                             <constraint firstItem="qiF-u5-vG4" firstAttribute="centerY" secondItem="XLn-lp-pth" secondAttribute="centerY" id="kUn-DR-8Cw"/>
                                             <constraint firstItem="bzC-s8-iwn" firstAttribute="leading" secondItem="qiF-u5-vG4" secondAttribute="trailing" constant="10" id="xMQ-9O-Huk"/>
                                         </constraints>
@@ -507,6 +511,6 @@
         <image name="Filler" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IEX-zA-R5R"/>
+        <segue reference="KuD-Ul-PXb"/>
     </inferredMetricsTieBreakers>
 </document>
