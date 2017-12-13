@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         usersPosts.delegate = self
         usersPosts.dataSource = self
         
-        self.postersName.text = self.username
+        self.postersName.text = self.username.camelCaseToWords()
         
         loadAndPopulatePostVar()
     }

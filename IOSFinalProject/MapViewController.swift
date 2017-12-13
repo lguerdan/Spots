@@ -88,7 +88,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
             //This is an example of duration sorting, will return posts = to or < duration specified
             //let collectedPosts: [Post] = self.populateByDuration(5, self.posts)
             
+            if(self.posts.count == 0) {
+                self.loadingView.isHidden = true
+                self.backgroundView.isHidden = true
+            }
+            
             for post in self.posts {
+                
                 let dogPost = DogPost(title: post.name, desc: post.description, coordinate: CLLocationCoordinate2D(latitude: post.latitude, longitude: post.longitude), duration: post.duration,photo: (post.photo?.image)!,name: post.posterName, posterName: post.posterName, startTime: post.startTime)
                 
                 self.postAnnotation.append(dogPost)
