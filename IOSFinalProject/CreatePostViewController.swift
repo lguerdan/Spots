@@ -231,7 +231,9 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                             print(error as Any)
                         }
                     })
-                    let dogPost = DogPost(title: name, desc: description, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), duration: durationInt, photo: image!, name: userName, posterName: userName, startTime: currDate)
+                    let turnedImage = UIImage(cgImage: (image?.cgImage)!, scale: (image?.scale)!, orientation: UIImageOrientation.up)
+                    
+                    let dogPost = DogPost(title: name, desc: description, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), duration: durationInt, photo: turnedImage, name: userName, posterName: userName, startTime: currDate)
                     self.delegate?.finishPassing(post: dogPost)
                 }
             })

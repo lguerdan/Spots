@@ -110,7 +110,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.textLabel?.text = post.name
         cell.detailTextLabel?.text = "Poster: \(post.posterName.camelCaseToWords())"
-        cell.imageView?.image = post.photo?.image
+        let turnedImage = UIImage(cgImage: (post.photo?.image.cgImage)!, scale: (post.photo?.image.scale)!, orientation: UIImageOrientation.right)
+        
+        cell.imageView?.image = turnedImage
         
         return cell
     }

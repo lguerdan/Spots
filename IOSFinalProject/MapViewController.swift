@@ -46,6 +46,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, CreatePost
         super.viewDidLoad()
         
         loadingView.image = UIImage.gifImageWithURL("https://cdn.pbrd.co/images/GXt5GOG.gif")
+        backgroundView.isHidden = true
         let zoneCheck = Zone.defaultPublicDatabase()
         zoneCheck.userInformation(completionHandler: { (user, error) in
             if error != nil {
