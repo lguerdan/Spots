@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor(rgb: 0xE77C1E).cgColor
         
+        self.loadingText = "Loading post history..."
         // change of font and font color of navigation controller
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Gujarati Sangam MN", size: 20)!, NSAttributedStringKey.foregroundColor: UIColor.white]
         
@@ -49,13 +50,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let zone = Zone.defaultPublicDatabase()
         zone.retrieveObjects(completionHandler: { (posts: [Post]) in
             self.posts = posts
-            
-            print(self.username)
+    
             self.posts = self.posts.filter() { $0.posterName == self.username }
             
-            
-            print(self.posts.count)
-            
+            if self.posts.count == 0 {
+                self.loadingText = "No post history."
+            }
             self.usersPosts.reloadData()
         })
     }
@@ -96,11 +96,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return self.posts.count
     }
     
+    var loadingText = ""
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if self.posts.count == 0 {
-            cell.textLabel?.text = "Loading post history..."
+            cell.textLabel?.text = self.loadingText
             cell.imageView?.image = nil
             cell.detailTextLabel?.text = ""
             return cell
